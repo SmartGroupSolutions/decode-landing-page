@@ -1,112 +1,113 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Decode</title>
-    <!-- FONT IBM PLEX SANS-->
+
+    <!-- FONT IBM PLEX SANS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
             href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
     />
+
     <!-- Lucide Icons -->
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css"
     />
+
     <!-- Main Stylesheet -->
     <link
             rel="stylesheet"
             href="assets/styles/styles.css"
     />
+
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <header>
-        <section class="header-logo">
-            <i></i>
-            <div class="header-titulo">
-                <h2>Decode</h2>
-                <p>SmartSolutions</p>
-            </div>
-        </section>
-        <section class="header-interaccion">
-                <section class="header-opciones">
-                    <a href="#">Inicio</a>
-                    <a href="#">Comunidad</a>
-                    <a href="#">Sobre nosotros</a>
-                    <div class="opcion-ruta-aprendizaje">
-                        <a href="#">Ruta aprendizaje</a>
-                        <a href="#"><i class="fa-regular fa-square-caret-down"></i></a>
-                    </div>
-                </section>
-                <section class="usuario-btn">
-                    <input type="button" value="Iniciar Sesión" class="btn-login">
-                    <input type="button" value="Empieza gratis" class="btn-registro">
-                </section>
-        </section>
-    
-    </header>
-
-    <section class="presentacion">
-        <section class="presentacion-container">
-            <div class="presentacion-info">
-                <div class="pi-titulo">
-                    <h1>Programa desde cero <br>con retroalimentación <br>inmediata</h1>
-                </div>
-                <div class="pi-descripcion">
-                    <p>Decode te acompaña paso a paso mientras escribes código. <br>
-                    Obtén explicaciones claras, ejemplos ejecutados y feedback <br>en tiempo real con inteligencia artificial. </p>
-                </div>
-                <div class="pi-btn">
-                    <input type="button" value="Descargar aplicación" class="btn-descarga">
-                    <input type="button" value="Ver planes" class="btn-planes">
-                </div>
-            </div>
-            <div class="presentacion-img">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqN7xdogjEKdtJzCspHvh3S_1v5rsOV1d2007ydTDKwYApNIXaQOR6h6yUVFCceGCjwcQ&usqp=CAU" alt="">
-            </div>
-        </section>
+<!-- HEADER -->
+<header class="header">
+    <section class="header__logo">
+        <i></i>
+        <div class="header__title">
+            <h2 class="header__title-main">Decode</h2>
+            <p class="header__title-sub">SmartSolutions</p>
+        </div>
     </section>
 
+    <section class="header__interaction">
+        <nav class="header__nav">
+            <a href="#" class="header__nav-link">Inicio</a>
+            <a href="#" class="header__nav-link">Comunidad</a>
+            <a href="#" class="header__nav-link">Sobre nosotros</a>
+            <div class="header__nav-option">
+                <a href="#" class="header__nav-link">Ruta aprendizaje</a>
+                <img src="assets/icons/chevron-down.svg" alt="Dropdown icon" class="header__icon" />
+            </div>
+        </nav>
 
-    <section class="benefits">
+        <div class="header__actions">
+            <input type="button" value="Iniciar Sesión" class="btn btn--primary header__btn-login">
+            <input type="button" value="Empieza gratis" class="btn btn--secondary header__btn-register">
+        </div>
+    </section>
+</header>
+
+<!-- HERO / PRESENTATION -->
+<section class="presentation">
+    <div class="presentation__container">
+        <div class="presentation__info">
+            <h1 class="presentation__title text-gradient">
+                Programa desde cero <br>con retroalimentación <br>inmediata
+            </h1>
+            <p class="presentation__description">
+                Decode te acompaña paso a paso mientras escribes código. <br>
+                Obtén explicaciones claras, ejemplos ejecutados y feedback <br>
+                en tiempo real con inteligencia artificial.
+            </p>
+            <div class="presentation__buttons">
+                <input type="button" value="Descargar aplicación" class="btn btn--primary presentation__btn-download">
+                <input type="button" value="Ver planes" class="btn btn--light presentation__btn-plans">
+            </div>
+        </div>
+        <div class="presentation__image">
+            <img src="assets/images/page-web.jpeg" alt="Presentación Decode" class="presentation__img">
+        </div>
+    </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
     <div class="benefits__header">
         <p class="benefits__subtitle">Las herramientas que tú necesitas</p>
         <p class="benefits__title">
-            <span class="text-gradient">
-                Todas las facilidades para aprender de la mejor manera
-            </span>
+                <span class="text-gradient">
+                    Todas las facilidades para aprender de la mejor manera
+                </span>
         </p>
     </div>
+
     <div class="benefits__list">
         <div class="benefit">
             <img src="assets/icons/bot-message-square.svg" alt="Chatbot icon" class="benefit__icon" />
-            <p class="benefit__text">
-                Chatbot para responder todas tus dudas
-            </p>
+            <p class="benefit__text">Chatbot para responder todas tus dudas</p>
         </div>
 
         <div class="benefit">
             <img src="assets/icons/brain-circuit.svg" alt="IA icon" class="benefit__icon" />
-            <p class="benefit__text">
-                Generación de ejercicios adicionales con IA
-            </p>
+            <p class="benefit__text">Generación de ejercicios adicionales con IA</p>
         </div>
 
         <div class="benefit">
             <img src="assets/icons/book-open-check.svg" alt="Test icon" class="benefit__icon" />
-            <p class="benefit__text">
-                Desafío final para comprobar tus conocimientos adquiridos
-            </p>
+            <p class="benefit__text">Desafío final para comprobar tus conocimientos adquiridos</p>
         </div>
 
         <div class="benefit">
@@ -115,72 +116,77 @@
         </div>
     </div>
 
-    <button class="benefits__button">Descargar ahora</button>
-    </section>
+    <input type="button" value="Descargar ahora" class="btn btn--primary benefits__button">
+</section>
 
-    <section class="reseñas">
-        <section class="reseñas-container">
-            <div class="r-info">
-                <p>Decode es muy recomendado por sus características educativas y usabilidad</p>
-                <h3>Amado por Desarrolladores</h3>
+<!-- REVIEWS -->
+<section class="reviews">
+    <div class="reviews__container">
+        <div class="reviews__info">
+            <p class="reviews__text">Decode es muy recomendado por sus características educativas y usabilidad</p>
+            <h3 class="text-gradient reviews__title">Amado por Desarrolladores</h3>
+        </div>
+
+        <div class="reviews__cards">
+            <div class="review box-gradient">
+                <div class="review__author">
+                    <img src="assets/icons/circle-user-round.svg" alt="User icon" class="review__icon" />
+                    <p class="review__name">Alan Perez</p>
+                </div>
+                <p class="review__comment">Recién comencé la universidad. Decode me ayudó muchísimo...</p>
             </div>
-            <div class="r-cards">
-                <div class="r-card">
-                    <div class="rc-autor">
-                        <img src="/assets/img/profile.png" alt="">
-                        <p>Alan Perez</p>
-                    </div>
-                    <div class="rc-comentario">
-                        <p>Recién comencé la universidad. Decode me ayudó muchísimo. El chatbot corrige mis errores al instante y me explica con claridad qué estoy haciendo mal. Es como tener un profesor disponible todo el tiempo. Me siento más seguro programando y he avanzado rápido gracias a su ayuda. </p>
-                    </div>
+
+            <div class="review box-gradient">
+                <div class="review__author">
+                    <img src="assets/icons/circle-user-round.svg" alt="User icon" class="review__icon" />
+                    <p class="review__name">Carlos Perez</p>
                 </div>
-                <div class="r-card">
-                    <div class="rc-autor">
-                        <img src="/assets/img/profile.png" alt="">
-                        <p>Carlos Perez</p>
-                    </div>
-                    <div class="rc-comentario">
-                        <p>Ya sabía C++, pero usé Decode para practicar y fue excelente. El chatbot me ayudó a identificar errores pequeños que a veces pasaba por alto. Los ejercicios son útiles y variados. Es ideal para mantenerte activo programando y mejorar detalles. </p>
-                    </div>
-                </div>
-                <div class="r-card">
-                    <div class="rc-autor">
-                        <img src="/assets/img/profile.png" alt="">
-                        <p>Carla Flores</p>
-                    </div>
-                    <div class="rc-comentario">
-                        <p>Estudio una carrera artística, pero siempre quise aprender a programar. Con Decode fue muy fácil empezar. El chatbot me explicó mis errores paso a paso. A pesar de no tener experiencia previa, entendí todo. Me encantó la experiencia y ahora me siento más motivada a seguir aprendiendo C++.</p>
-                    </div>
-                </div>
-                <div class="r-card">
-                    <div class="rc-autor">
-                        <img src="/assets/img/profile.png" alt="">
-                        <p>Susana Cáceda </p>
-                    </div>
-                    <div class="rc-comentario">
-                        <p>Estudio Ingeniería Industrial y siempre me costaba entender la lógica de C++. Con Decode, todo se volvió más claro. El chatbot me guía paso a paso y me corrige sin hacerme sentir frustrada. Ahora disfruto programar y practico todos los días.</p>
-                    </div>
-                </div>
-                <div class="r-card">
-                    <div class="rc-autor">
-                        <img src="/assets/img/profile.png" alt="">
-                        <p>Rocio Delgado</p>
-                    </div>
-                    <div class="rc-comentario">
-                        <p>Soy estudiante de Diseño y nunca imaginé entender programación. Con Decode fue diferente: el chatbot me explicó cada error con paciencia y ejemplos claros. Ahora puedo crear mis propios proyectos y me siento más confiada con C++.</p>
-                    </div>
-                </div>
-                <div class="r-card">
-                    <div class="rc-autor">
-                        <img src="/assets/img/profile.png" alt="">
-                        <p>Pepe Quispe</p>
-                    </div>
-                    <div class="rc-comentario">
-                        <p>Trabajo y estudio al mismo tiempo, así que necesitaba algo flexible. Decode me permite practicar C++ cuando puedo, y el chatbot me explica mis errores de forma sencilla. Es una gran herramienta para mejorar sin depender de horarios.</p>
-                    </div>
-                </div>
+                <p class="review__comment">Ya sabía C++, pero usé Decode para practicar y fue excelente...</p>
             </div>
-        </section>
-    </section>
+
+            <div class="review box-gradient">
+                <div class="review__author">
+                    <img src="assets/icons/circle-user-round.svg" alt="User icon" class="review__icon" />
+                    <p class="review__name">Carla Flores</p>
+                </div>
+                <p class="review__comment">Estudio una carrera artística, pero siempre quise aprender a programar...</p>
+            </div>
+
+            <div class="review box-gradient">
+                <div class="review__author">
+                    <img src="assets/icons/circle-user-round.svg" alt="User icon" class="review__icon" />
+                    <p class="review__name">Susana Cáceda</p>
+                </div>
+                <p class="review__comment">Estudio Ingeniería Industrial y siempre me costaba entender la lógica...</p>
+            </div>
+
+            <div class="review box-gradient">
+                <div class="review__author">
+                    <img src="assets/icons/circle-user-round.svg" alt="User icon" class="review__icon" />
+                    <p class="review__name">Rocio Delgado</p>
+                </div>
+                <p class="review__comment">Soy estudiante de Diseño y nunca imaginé entender programación...</p>
+            </div>
+
+            <div class="review box-gradient">
+                <div class="review__author">
+                    <img src="assets/icons/circle-user-round.svg" alt="User icon" class="review__icon" />
+                    <p class="review__name">Pepe Quispe</p>
+                </div>
+                <p class="review__comment">Trabajo y estudio al mismo tiempo, así que necesitaba algo flexible...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA / CONVENCIMIENTO -->
+<section class="cta">
+    <div class="cta__text">
+        <h1 class="cta__title text-gradient">¿Aún no te convence? ¡Prueba Decode por tu cuenta!</h1>
+        <p class="cta__description">Regístrate en minutos y accede gratis a nuestro módulo 'Primeros Pasos con Python'. Escribe tu primera línea de código con la guía de nuestra IA y siente la satisfacción de programar por primera vez. Sin tarjeta de crédito y sin compromiso.</p>
+    </div>
+    <input type="button" value="Consigue 3 días gratis" class="btn btn--accent cta__button">
+</section>
+
 </body>
 </html>

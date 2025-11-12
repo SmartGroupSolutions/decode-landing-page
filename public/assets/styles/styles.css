@@ -1,3 +1,6 @@
+/* =========================================================
+   GLOBAL RESET & VARIABLES
+========================================================= */
 * {
     padding: 0;
     margin: 0;
@@ -7,9 +10,13 @@
 :root {
     --color-bg: #101218;
     --color-primary: #5F4CE8;
-    --color-white: #ffffff;
+    --color-accent: #2EB884;
+    --color-white: #FFFFFF;
 }
 
+/* =========================================================
+   BASE STYLES
+========================================================= */
 html, body {
     width: 100%;
     margin: 0;
@@ -20,176 +27,126 @@ html, body {
     font-style: normal;
 }
 
-.benefits{
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-    margin: 80px;
-}
-.benefits__button{
-    background-color: #5F4CE8;
-    display: flex;
-    border-radius: 5px;
-    color: #FFFFFF;
+/* =========================================================
+   GLOBAL COMPONENTS
+========================================================= */
+
+/* Buttons */
+.btn {
+    cursor: pointer;
     border: none;
-    width: 221px;
-    height: 56px;
-    align-self: center;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-}
-.benefits__header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-.benefits__title{
-    margin: 0;
-    padding: 0;
-    font-size: 42px;
-    font-weight: bold;
-}
-.benefits__subtitle{
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-.benefit__text{
-    color: white;
+    border-radius: 5px;
+    height: 48px;
+    min-width: 170px;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: 0.2s ease-in-out;
 }
 
-.benefit__icon{
-    color: white;
-    width: 50px;
-    height: 50px;
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
-.text-gradient{
-    background: linear-gradient(90deg,var(--color-primary),var(--color-white),var(--color-primary));
+.btn--secondary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn--light {
+    background-color: var(--color-white);
+    color: #000000;
+}
+
+.btn--accent {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+/* Gradient Text */
+.text-gradient {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-white), var(--color-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
 }
 
-.benefits__list{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
+/* Box Gradient (Reviews Cards) */
+.box-gradient {
+    background: linear-gradient(180deg, var(--color-bg), var(--color-primary), var(--color-primary));
 }
 
-.benefit{
-    display: flex;
-    flex-direction: column;
-    width: 308px;
-    height: 116px;
-    align-items: center;
-
-}
-
-.benefit__text{
-    display: flex;
-    text-align: center;
-}
-
-
-header {
+/* =========================================================
+   HEADER
+========================================================= */
+.header {
     display: flex;
     padding: 24px;
     justify-content: space-between;
-    background-color: #101218;
-    color: white;
+    background-color: var(--color-bg);
+    color: var(--color-white);
     position: sticky;
 }
 
-
-.header-logo {
+.header__logo {
     margin-left: 4rem;
 }
 
-.header-titulo h2 {
+.header__title-main {
     font-size: 30px;
     font-weight: 700;
 }
 
-.header-titulo p {
+.header__title-sub {
     font-size: 15px;
 }
 
-.header-interaccion {
+.header__interaction {
     display: flex;
     gap: 3rem;
     align-items: center;
     margin-right: 4rem;
 }
 
-.header-opciones {
+.header__nav {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.header-opciones a {
+.header__nav-link {
     text-decoration: none;
-    color: white;
+    color: var(--color-white);
     font-size: 1.05rem;
 }
 
-.usuario-btn {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.usuario-btn input, .pi-btn input {
-    height: 48px;
-    padding: 5px;
-    min-width: 170px;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: #FFFFFF;
-    font-weight: 500;
-    border-radius: 5px;
-    outline: none;
-    font-size: 1.05rem;
-}
-
-.usuario-btn input:nth-child(1) {
-    background-color: #5F4CE8;
-}
-
-.usuario-btn input:nth-child(2) {
-    background-color: #2EB884;
-}
-
-.opcion-ruta-aprendizaje {
+.header__nav-option {
     display: flex;
     gap: 5px;
     align-items: center;
     justify-content: center;
 }
 
-.presentacion {
-    background-color: #101218;
+.header__actions {
     display: flex;
-    color: white;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* =========================================================
+   HERO / PRESENTATION
+========================================================= */
+.presentation {
+    background-color: var(--color-bg);
+    display: flex;
+    color: var(--color-white);
     width: 100%;
     justify-content: center;
-    
 }
 
-.presentacion-img img {
-    min-height: 400px;
-    
-}
-
-.presentacion-container {
+.presentation__container {
     display: flex;
     margin-top: 6rem;
     gap: 5rem;
@@ -199,51 +156,112 @@ header {
     flex-wrap: wrap-reverse;
 }
 
-.presentacion-info {
+.presentation__info {
     display: flex;
     flex-direction: column;
     gap: 4rem;
 }
 
-.presentacion-container h1{
+.presentation__title {
     font-size: 3.5rem;
     font-weight: 700;
 }
 
-.presentacion-container p {
+.presentation__description {
     font-weight: 400;
     font-size: 1.2rem;
 }
 
-.pi-btn {
+.presentation__buttons {
     display: flex;
     gap: 1rem;
 }
 
-.pi-btn input {
-    font-size: 1.2rem;
+.presentation__image img {
+    width: 850px;
+    height: 535px;
 }
 
-.pi-btn input:nth-child(1){
-    background-color: #5F4CE8;
-    min-width: 268px;
+/* =========================================================
+   BENEFITS
+========================================================= */
+.benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin: 80px;
 }
 
-.pi-btn input:nth-child(2){
-    background-color: #FFFFFF;
-    color: #000000;
+.benefits__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
-.reseñas {
-    background-color: #101218;
-    color: white;
+.benefits__title {
+    font-size: 2.625rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.benefits__subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+.benefits__list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.benefit {
+    display: flex;
+    flex-direction: column;
+    width: 308px;
+    height: 116px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.benefit__icon {
+    color: var(--color-white);
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.benefit__text {
+    color: var(--color-white);
+}
+
+.benefits__button {
+    width: 221px;
+    height: 56px;
+    align-self: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+.reviews {
+    background-color: var(--color-bg);
+    color: var(--color-white);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.reseñas-container {
+.reviews__container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -251,35 +269,22 @@ header {
     gap: 3.5rem;
 }
 
-.r-info {
+.reviews__info {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
     margin-bottom: 3rem;
 }
 
-.r-info p {
-    font-size: 2rem;
+.reviews__text {
+    font-size: 1.25rem;
 }
 
-.r-info h3 {
-    font-size: 3.2rem;
+.reviews__title {
+    font-size: 2.625rem;
 }
 
-.rc-autor {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.rc-autor img {
-    height: 40px;
-    width: 40px;
-    filter: invert();
-}
-
-.r-cards {
+.reviews__cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -288,13 +293,69 @@ header {
     width: 80%;
 }
 
-.r-card {
+.review {
     width: 440px;
     height: 230px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 1.5rem;
-    background-color: #5F4CE8;
+    background-color: var(--color-primary);
     border-radius: 5px;
+}
+
+.review__author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review__icon {
+    width: 50px;
+    height: 50px;
+}
+
+.review__name {
+    font-weight: 600;
+}
+
+.review__comment {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+.cta {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin: 80px;
+}
+
+.cta__text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+}
+
+.cta__title {
+    font-weight: bold;
+    font-size: 2.625rem;
+}
+
+.cta__description {
+    font-weight: normal;
+    font-size: 18px;
+    color: var(--color-white);
+}
+
+.cta__button {
+    width: 221px;
+    height: 56px;
+    align-self: center;
+    font-weight: bold;
+    font-size: 16px;
 }
