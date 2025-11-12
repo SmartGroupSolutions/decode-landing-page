@@ -1,4 +1,6 @@
 * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -93,4 +95,206 @@ html, body {
 .benefit__text{
     display: flex;
     text-align: center;
+}
+
+
+header {
+    display: flex;
+    padding: 24px;
+    justify-content: space-between;
+    background-color: #101218;
+    color: white;
+    position: sticky;
+}
+
+
+.header-logo {
+    margin-left: 4rem;
+}
+
+.header-titulo h2 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.header-titulo p {
+    font-size: 15px;
+}
+
+.header-interaccion {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin-right: 4rem;
+}
+
+.header-opciones {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.header-opciones a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.05rem;
+}
+
+.usuario-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.usuario-btn input, .pi-btn input {
+    height: 48px;
+    padding: 5px;
+    min-width: 170px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #FFFFFF;
+    font-weight: 500;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.05rem;
+}
+
+.usuario-btn input:nth-child(1) {
+    background-color: #5F4CE8;
+}
+
+.usuario-btn input:nth-child(2) {
+    background-color: #2EB884;
+}
+
+.opcion-ruta-aprendizaje {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.presentacion {
+    background-color: #101218;
+    display: flex;
+    color: white;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+.presentacion-img img {
+    min-height: 400px;
+    
+}
+
+.presentacion-container {
+    display: flex;
+    margin-top: 6rem;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+    flex-wrap: wrap-reverse;
+}
+
+.presentacion-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.presentacion-container h1{
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.presentacion-container p {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.pi-btn {
+    display: flex;
+    gap: 1rem;
+}
+
+.pi-btn input {
+    font-size: 1.2rem;
+}
+
+.pi-btn input:nth-child(1){
+    background-color: #5F4CE8;
+    min-width: 268px;
+}
+
+.pi-btn input:nth-child(2){
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.reseñas {
+    background-color: #101218;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.reseñas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 3.5rem;
+}
+
+.r-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.r-info p {
+    font-size: 2rem;
+}
+
+.r-info h3 {
+    font-size: 3.2rem;
+}
+
+.rc-autor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rc-autor img {
+    height: 40px;
+    width: 40px;
+    filter: invert();
+}
+
+.r-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    width: 80%;
+}
+
+.r-card {
+    width: 440px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 1.5rem;
+    background-color: #5F4CE8;
+    border-radius: 5px;
 }
