@@ -841,4 +841,247 @@ html, body {
 
 /* =========================================================
    FOOTER
+========================================================= */
+.footer {
+    width: 100%;
+    background-color: #000000;
+    color: #9CA3AF;
+    padding: 40px 20px;
+    border-top: 1px solid #374151;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.footer__container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Parte superior: logo + suscripción */
+.footer__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .footer__top {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* LOGO */
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+    .footer__logo {
+        margin-bottom: 0;
+    }
+}
+
+.footer__logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #5F4CE8, #10B981);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer__logo-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.footer__logo-subtitle {
+    font-size: 12px;
+    color: #9CA3AF;
+    margin: -4px 0 0 0;
+}
+
+/* SUSCRIPCIÓN */
+.footer__subscription {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .footer__subscription {
+        width: auto;
+    }
+}
+
+.footer__input {
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 4px 0 0 4px;
+    background-color: #111827;
+    border: 1px solid #374151;
+    color: #9CA3AF;
+    font-size: 14px;
+    outline: none;
+}
+
+@media (min-width: 768px) {
+    .footer__input {
+        width: 384px;
+    }
+}
+
+.footer__input:focus {
+    box-shadow: 0 0 0 1px #10B981;
+}
+
+.footer__input::placeholder {
+    color: #6B7280;
+}
+
+.footer__subscribe-btn {
+    background-color: #10B981;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 0 4px 4px 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.footer__subscribe-btn:hover {
+    background-color: #059669;
+}
+
+/* Divisor */
+.footer__divider {
+    border-color: #374151;
+    margin-bottom: 40px;
+}
+
+/* Enlaces */
+.footer__links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .footer__links {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.footer__link-group h3 {
+    color: #FFFFFF;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.footer__link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer__link {
+    color: #9CA3AF;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer__link:hover {
+    color: #FFFFFF;
+}
+
+/* Descargas */
+.footer__downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.footer__download-btn {
+    background-color: #374151;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.footer__download-btn:hover {
+    background-color: #4B5563;
+}
+
+/* Redes sociales */
+.footer__social-title {
+    color: #FFFFFF;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer__social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer__social-link {
+    color: #9CA3AF;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer__social-link:hover {
+    color: #FFFFFF;
+}
+
+/* Parte inferior */
+.footer__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    color: #6B7280;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .footer__bottom {
+        flex-direction: row;
+        text-align: left;
+        gap: 0;
+    }
+}
+
+.footer__bottom-links {
+    display: flex;
+    gap: 24px;
 }
