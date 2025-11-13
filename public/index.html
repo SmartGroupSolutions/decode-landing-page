@@ -229,6 +229,71 @@
         </div>
     </div>
 </section>
+<!-- CTA PRECIOS / --->
+<!-- PRECIOS -->
+<section class="pricing">
+    <h2>PRECIOS<br><span style="color:white;">Nuestras suscripciones</span></h2>
+    <p>
+        Aprende programación con tu compañero de código I.A. Desde tu primera línea de código hasta proyectos complejos,
+        nuestra inteligencia artificial se adapta a tu ritmo y estilo de aprendizaje, ofreciendo ayuda instantánea y explicaciones personalizadas.
+    </p>
+
+    <!-- Toggle igual al diseño -->
+    <div class="toggle-container">
+        <div class="discount-badge">20% OFF</div>
+        <div class="toggle">
+            <span>Yearly</span>
+            <div class="switch" id="switch"></div>
+            <span>Monthly</span>
+        </div>
+    </div>
+
+    <div class="pricing-container">
+        <!-- Plan Free -->
+        <div class="plan">
+            <h3>Free</h3>
+            <small>Tu primer paso en el código con asistente IA básico</small>
+            <div class="price">$0</div>
+            <small>Acceso perpetuo al contenido básico</small>
+            <button class="btn">Empezar</button>
+            <ul>
+                <li>Fundamentos de programación con ejercicios guiados</li>
+                <li>Verificación básica de código con IA</li>
+                <li>Ejercicios prácticos con verificación automática</li>
+                <li>Soporte IA en horario estándar</li>
+            </ul>
+        </div>
+
+        <!-- Plan Premium -->
+        <div class="plan">
+            <h3>Premium</h3>
+            <small>Aprendizaje personalizado con mentor IA avanzado</small>
+            <div>
+                <span class="old-price">$30</span>
+                <span class="price">$20</span>
+            </div>
+            <small>$20 USD/mes (Pago Anual - ¡Ahorras $120 al año!)</small>
+            <button class="btn">Empezar</button>
+            <ul>
+                <li>Mentor IA personalizado que aprende de tu progreso</li>
+                <li>Revisión avanzada de código y optimizaciones en tiempo real</li>
+                <li>Simulador de entrevistas técnicas con IA</li>
+                <li>Generación de portfolio personalizado con IA</li>
+                <li>Certificaciones profesionales reconocidas</li>
+                <li>Explicaciones paso a paso de conceptos complejos</li>
+                <li>Soporte IA 24/7</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Pequeño script para animar el switch
+    const toggleSwitch = document.getElementById('switch');
+    toggleSwitch.addEventListener('click', () => {
+        toggleSwitch.classList.toggle('active');
+    });
+</script>
 <section class="team-section">
     <p class="team-section__subtitle">EL EQUIPO</p>
     <h2 class="team-section__title">Los rostros de SmartSolutions</h2>
