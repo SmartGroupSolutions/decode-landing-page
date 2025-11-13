@@ -523,3 +523,146 @@ html, body {
     font-weight: bold;
     font-size: 16px;
 }
+
+.learning {
+  background-color: #101218;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  gap: 64px;
+  padding: auto;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.section .section-text {
+  display: flex;
+  flex-direction: column;
+  width: 1280px;
+  align-items: flex-start;
+}
+
+.section .top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+
+.section .caption {
+  font-family: "IBM Plex Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1.00px;
+  line-height: 10px;
+}
+
+.section .secondary-headline {
+  align-self: center;
+  background: linear-gradient(
+    90deg,
+    rgba(95, 76, 232, 1) 21%,
+    rgba(255, 255, 255, 0.7) 44%,
+    rgba(175, 165, 243, 0.75) 50%,
+    rgba(95, 76, 232, 0.8) 55%,
+    rgba(154, 149, 193, 1) 60%,
+    rgba(53, 43, 130, 1) 100%
+  );
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "IBM Plex Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: transparent;
+  font-size: 42px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 40px;
+}
+
+.section .frame {
+  width: 1000px;
+  align-items: flex-start;
+  gap: 64px;
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.section .div {
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 16px;
+  flex: 1;
+  flex-grow: 1;
+  display: flex;
+}
+
+.section .paragraph {
+  align-self: center;
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 25.2px;
+}
+
+.section .image {
+  width: 70px;
+  height: 70px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.section .text-wrapper {
+  height: 124px;
+  align-self: center;
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 25.2px;
+}
+
+.section .button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  position: center;
+  background-color: #5f4ce8;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.section .text-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 16px;
+  position: center;
+}
+
+.section .button-text {
+  position: center;
+  width: fit-content;
+  font-family: "IBM Plex Sans-Medium", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0.50px;
+  line-height: 20px;
+  white-space: nowrap;
+}
