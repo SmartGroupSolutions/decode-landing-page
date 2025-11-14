@@ -1,0 +1,94 @@
+.sesion {
+    display: flex;
+    color: white;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+.sesion .register {
+    display: flex;
+    width: 450px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+    background: linear-gradient(to bottom, #1a1a28, #302b63);
+    border-radius: 15px;
+    padding: 10px 50px; /* Aumenté el padding para hacerlo más grueso */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6); /* Aumenté la sombra */
+    border: 2px solid #3a3469; /* Agregué borde para más grosor */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sesion .register img {
+    filter: invert();
+    height: 4rem;
+    width: 4rem;
+}
+
+.sesion .register .register__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.sesion .register .register__info h4 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.sesion .register .register__info h2 {
+    font-size: 2.5rem;
+}
+
+.register__input {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.register__input input {
+    height: 50px;
+    width: 320px;
+    outline: 1px solid #a7a7a7;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-color: #101218;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.register__input input:focus {
+    box-shadow: 0 5px 10px rgba(163,139,255,0.5);
+
+}
+
+.register__enter {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 20px;
+    margin-bottom: 2rem;
+}
+
+.register__enter input {
+    height: 50px;
+    font-size: 1.5rem;
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.register__enter input:hover {
+    background-color: rgb(5, 132, 75);
+}
+
+.register__enter a {
+    color: rgb(118, 207, 255);
+}
