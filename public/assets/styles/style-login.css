@@ -16,9 +16,9 @@
     margin-top: 4rem;
     background: linear-gradient(to bottom, #1a1a28, #302b63);
     border-radius: 15px;
-    padding: 10px 50px; /* Aumenté el padding para hacerlo más grueso */
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6); /* Aumenté la sombra */
-    border: 2px solid #3a3469; /* Agregué borde para más grosor */
+    padding: 10px 50px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    border: 2px solid #3a3469;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
