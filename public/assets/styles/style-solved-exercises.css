@@ -1,0 +1,185 @@
+:root {
+    --bg-color: #f4f4f4;
+    --card-bg: #EAE8F8;
+    --card-border: #7B61FF;
+    --active-btn: #282a36;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+body {
+    background-color: var(--bg-color);
+}
+.main-header {
+    height: 80px;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ccc;
+}
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    font-size: 2rem;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 81px;
+    right: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    width: 200px;
+    flex-direction: column;
+}
+.dropdown-menu.show {
+    display: flex;
+}
+.menu-item {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f9f9f9;
+}
+.menu-item:hover {
+    background-color: #f5f5f5;
+}
+.main-container {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+.content-wrapper {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.problems-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.problem-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.2s;
+}
+.problem-card:hover {
+    background-color: #e0e5ff;
+    transform: scale(1.02);
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+}
+.page-btn:hover {
+    background-color: #eee;
+}
+.page-btn.active {
+    background-color: var(--active-btn);
+    color: white;
+    font-weight: bold;
+}
+.bottom-nav {
+    display: none;
+}
+@media (max-width: 768px) {
+    .header-logo { font-size: 1.5rem; }
+    .page-title { font-size: 1.8rem; }
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        z-index: 2000;
+    }
+    .problem-card {
+        padding: 15px 20px;
+    }
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--terminal-bg);
+        font-size: 0.8rem;
+    }
+    .nav-item i {
+        font-size: 1.4rem;
+        margin-bottom: 4px;
+    }
+    .nav-item.active {
+        color: #333;
+    }
+}
