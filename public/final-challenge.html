@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Final - Decode</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/styles/style-final-challenge.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="avatar">
+        <img src="assets/images/Laufey-avatar.jpg" class="avatar-img" alt="avatar">
+    </div>
+    <a href="index.html" class="header-logo">DECODE</a>
+    <button class="menu-btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+    <div class="dropdown-menu" id="dropdown-menu">
+        <a href="#" class="menu-item"><i class="fas fa-home"></i> Inicio</a>
+        <a href="#" class="menu-item"><i class="fas fa-bolt"></i> Rutas</a>
+        <a href="#" class="menu-item"><i class="fas fa-users"></i> Comunidad</a>
+        <a href="#" class="menu-item"><i class="fas fa-user"></i> Perfil</a>
+    </div>
+</header>
+
+<main class="main-container">
+    <div class="content-wrapper">
+        <h2 class="section-title">Desafío final</h2>
+
+        <div class="tabs-header">
+            <button class="tab-btn active" data-target="terminal-view">Terminal</button>
+            <button class="tab-btn" data-target="info-view">Sobre el ejercicio</button>
+        </div>
+
+        <div id="terminal-view" class="tab-content active">
+            <div class="code-wrapper">
+                <textarea class="code-editor" spellcheck="false">// Crea un programa en C++ que permita
+// practicar condicionales.
+// Utiliza if y else para verificar si un número
+// ingresado por el usuario es positivo, negativo o cero.
+// Usa Decode para recibir ayuda.
+
+> |</textarea>
+            </div>
+
+            <div class="action-buttons">
+                <button id="btn-enviar" class="btn btn-primary">Enviar</button>
+                <button id="btn-compilar" class="btn btn-secondary">Compilar</button>
+            </div>
+        </div>
+
+        <div id="info-view" class="tab-content hidden">
+            <div class="info-card">
+                <h3 class="card-title">Desafío final 🚀</h3>
+                <p>Cree un programa que le pida al usuario un número y determine si es positivo, negativo o cero. Debe utilizar estructuras de control como if y else.</p>
+            </div>
+            <div class="info-card">
+                <h3 class="card-title">Dificultad ⭐</h3>
+                <p>La dificultad va a ser alta para que puedas medirte en este desafío final y puedas ver tu progreso hasta el momento.</p>
+            </div>
+        </div>
+    </div>
+</main>
+<nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
+    <a href="#" class="nav-item active"><i class="fas fa-bolt"></i><span>Rutas</span></a>
+    <a href="#" class="nav-item"><i class="fas fa-users"></i><span>Comunidad</span></a>
+    <a href="#" class="nav-item"><i class="fas fa-user"></i><span>Perfil</span></a>
+</nav>
+<div class="modal-overlay" id="modal-success">
+    <div class="modal-content">
+        <h3 class="modal-title">Envío exitoso</h3>
+        <p class="modal-text">Logro Desbloqueado!!!!</p>
+        <button class="btn btn-primary modal-btn" id="close-success">Siguiente</button>
+    </div>
+</div>
+<div class="modal-overlay" id="modal-error">
+    <div class="modal-content">
+        <h3 class="modal-title">Compilación incorrecta</h3>
+        <p class="modal-text">El ejercicio no cumple con lo requerido.</p>
+        <button class="btn btn-secondary modal-btn" id="close-error">Volver</button>
+    </div>
+</div>
+
+<script src="assets/scripts/script-final-challenge.js"></script>
+</body>
+</html>
