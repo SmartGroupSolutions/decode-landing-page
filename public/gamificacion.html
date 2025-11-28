@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis Logros | Decode</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="assets/styles/styles.css"/>
+
+    <link rel="stylesheet" href="assets/styles/style-gamificacion.css"/>
+
+    <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <section class="header__logo">
+        <img src="assets/icons/logo.png" alt="Decode Logo">
+        <div class="header__title">
+            <h2 class="header__title-main">Decode</h2>
+            <p class="header__title-sub">SmartSolutions</p>
+        </div>
+    </section>
+
+    <section class="header__interaction">
+        <nav class="header__nav">
+            <a href="index.html" class="header__nav-link">Inicio</a>
+            <a href="comunidad.html" class="header__nav-link">Comunidad</a>
+            <a href="gamificacion.html" class="header__nav-link active-link">Logros</a>
+            <a href="#" class="header__nav-link">Suscripciones</a>
+        </nav>
+
+        <div class="header__actions">
+            <div class="mini-profile">
+                <img src="assets/icons/circle-user-round.svg" alt="User">
+                <span>Juan Perez</span>
+            </div>
+        </div>
+    </section>
+</header>
+
+<main class="gamification-section">
+    <div class="gamification-container">
+
+        <div class="page-header">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+            <h1 class="text-gradient">Mis Logros</h1>
+        </div>
+
+        <section class="progress-summary-box">
+            <h2 class="progress-title">Has desbloqueado <span class="highlight">3 de 8</span> logros</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 37.5%;"></div>
+            </div>
+        </section>
+
+        <section class="achievements-grid">
+
+            <div class="achievement-card unlocked">
+                <div class="card-icon-wrapper">
+                    <img src="assets/icons/lightbulb.svg" alt="Icono" class="achievement-icon">
+                </div>
+                <h3 class="achievement-title">Primeros pasos</h3>
+                <p class="achievement-desc">Completa tu primera lección en la plataforma.</p>
+                <span class="achievement-status">Desbloqueado</span>
+            </div>
+
+            <div class="achievement-card unlocked">
+                <div class="card-icon-wrapper">
+                    <img src="assets/icons/book-open-check.svg" alt="Icono" class="achievement-icon">
+                </div>
+                <h3 class="achievement-title">Estudiante dedicado</h3>
+                <p class="achievement-desc">Completa 5 lecciones consecutivas sin errores.</p>
+                <span class="achievement-status">Desbloqueado</span>
+            </div>
+
+            <div class="achievement-card unlocked">
+                <div class="card-icon-wrapper">
+                    <img src="assets/icons/trophy.svg" alt="Icono" class="achievement-icon">
+                </div>
+                <h3 class="achievement-title">Maestro del Código</h3>
+                <p class="achievement-desc">Obtén un 100% de efectividad en tus ejercicios.</p>
+                <span class="achievement-status">Desbloqueado</span>
+            </div>
+
+            <div class="achievement-card locked">
+                <div class="card-icon-wrapper">
+                    <i class="fas fa-lock lock-overlay"></i> <img src="assets/icons/brain-circuit.svg" alt="Icono" class="achievement-icon">
+                </div>
+                <h3 class="achievement-title">Racha de Fuego</h3>
+                <p class="achievement-desc">Estudia 7 días de forma consecutiva.</p>
+                <span class="achievement-status">Bloqueado</span>
+            </div>
+
+            <div class="achievement-card locked">
+                <div class="card-icon-wrapper">
+                    <i class="fas fa-lock lock-overlay"></i>
+                    <img src="assets/icons/code.svg" alt="Icono" class="achievement-icon">
+                </div>
+                <h3 class="achievement-title">Arquitecto Backend</h3>
+                <p class="achievement-desc">Completa la ruta de desarrollo backend.</p>
+                <span class="achievement-status">Bloqueado</span>
+            </div>
+
+            <div class="achievement-card locked">
+                <div class="card-icon-wrapper">
+                    <i class="fas fa-lock lock-overlay"></i>
+                    <img src="assets/icons/bot-message-square.svg" alt="Icono" class="achievement-icon">
+                </div>
+                <h3 class="achievement-title">Amigo de la IA</h3>
+                <p class="achievement-desc">Utiliza el chatbot para resolver 10 dudas complejas.</p>
+                <span class="achievement-status">Bloqueado</span>
+            </div>
+
+        </section>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__bottom" style="border:none; padding-top:0;">
+            <p class="footer__copyright">SmartSolutions © 2025. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
