@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Introducción</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap">
+    <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/styles/style-learning-map.css">
+</head>
+<body>
+
+<header class="module-header">
+    <div class="module-header__content">
+        <a href="curso_fundamentos_cpp.html" class="module-header__back">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="module-header__info">
+            <span class="module-header__label">MÓDULO 1</span>
+            <h1 class="module-header__title">Introducción a C++</h1>
+        </div>
+        <div class="module-header__status">
+            <span class="status-pill">3/8 Completado</span>
+        </div>
+    </div>
+</header>
+
+<main class="map-container">
+    <!--
+        Explicacion
+        <svg> Define el contenedor grafico
+        <path> El elemento que dibuja la forma (Una línea curva)
+        d="..." Contiene todas las instrucciones matemáticas para el dibujo.
+
+        Instrucciones:
+
+        M 200 50 (Move to):
+        Mover al punto de inicio (X=200, Y=50)
+
+        Q 200 150, 320 150:
+        Dibuja una curva desde el punto anterior,
+        usando un punto de control intermedio (200, 150)
+        para guiar la curvatura, y termina en el punto (320, 150)
+
+        T 320 300
+        Dibuja una curva de nuevo, pero asume el punto de control automáticamente para mantener la curva.
+        Ejemplo terminar en el punto 320, 300
+
+        L 200 850 (Line to):
+        Dibuja una Línea recta hasta el punto final
+
+    -->
+
+
+    <svg class="map-svg" viewBox="0 0 400 900" preserveAspectRatio="none">
+        <path class="path-track" d="M 200 50 Q 200 150, 320 150 T 320 300 Q 320 400, 200 400 T 80 550 Q 80 680, 200 680 L 200 850" fill="none" stroke="#E5E7EB" stroke-width="12" stroke-linecap="round" />
+        <path class="path-progress" d="M 200 50 Q 200 150, 320 150 T 320 300 Q 320 400, 200 400 " fill="none" stroke="#10B981" stroke-width="12" stroke-linecap="round" />
+    </svg>
+    <!--
+        T 80 550
+
+    -->
+    <div class="map-node map-node--pos-1">
+        <div class="node-icon node-icon--green">
+            <i class="fas fa-flag"></i>
+            <div class="node-badge node-badge--star"><i class="fas fa-star"></i></div>
+        </div>
+        <span class="node-label">Introducción</span>
+    </div>
+
+    <div class="map-node map-node--pos-2">
+        <div class="node-icon node-icon--green">
+            <i class="fas fa-code"></i>
+            <div class="node-badge node-badge--check"><i class="fas fa-check"></i></div>
+        </div>
+        <span class="node-label">Variables</span>
+    </div>
+
+    <div class="map-node map-node--pos-3">
+        <div class="node-icon node-icon--active">
+            <i class="fas fa-play"></i>
+            <div class="ripple"></div>
+        </div>
+        <span class="node-label node-label--active">Entrada y Salida</span>
+    </div>
+
+    <div class="map-node map-node--pos-4">
+        <div class="node-icon node-icon--locked">
+            <i class="fas fa-calculator"></i>
+        </div>
+        <span class="node-label">Aritmética</span>
+    </div>
+
+    <div class="map-node map-node--pos-5">
+        <div class="node-icon node-icon--locked">
+            <i class="fas fa-comment-alt"></i>
+        </div>
+        <span class="node-label">Comentarios</span>
+    </div>
+
+    <div class="map-node map-node--pos-6">
+        <div class="node-icon node-icon--gold">
+            <i class="fas fa-trophy"></i>
+            <div class="lock-overlay"><i class="fas fa-lock"></i></div>
+        </div>
+        <span class="node-label node-label--gold">EXAMEN FINAL</span>
+    </div>
+
+</main>
+
+<nav class="bottom-nav">
+    <a href="home.html" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
+    <a href="onboarding.html" class="nav-item active"><i class="fas fa-bolt"></i><span>Rutas</span></a>
+    <a href="community.html" class="nav-item"><i class="fas fa-users"></i><span>Comunidad</span></a>
+    <a href="profile.html" class="nav-item"><i class="fas fa-user"></i><span>Perfil</span></a>
+</nav>
+
+<script src="./assets/scripts/script-learning-route.js"></script>
+</body>
+</html>
