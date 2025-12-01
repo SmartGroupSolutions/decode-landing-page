@@ -1,7 +1,5 @@
-// assets/scripts/script-decode.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Referencias al DOM del Chat y Editor ---
     const codeEditor = document.getElementById('main-code-editor');
     const compileButton = document.querySelector('.btn--compile');
     const exerciseCards = document.querySelectorAll('.exercise__card');
@@ -9,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendButton = document.querySelector('.btn--send');
     const chatContent = document.querySelector('.chat-column__content');
     
-    // --- Referencias de botones de control ---
     const copyButton = document.getElementById('btn-copy');
     const resetButton = document.getElementById('btn-reset');
     const btnLoad = document.getElementById('btn-load');
@@ -17,16 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveFilenameInput = document.getElementById('save-filename');
     const savedFilesList = document.getElementById('saved-files-list');
     
-    // Referencias a la salida del editor
     const terminalOutput = document.querySelector('.terminal__output');
     const statusFooter = document.querySelector('.editor__footer-item--status');
 
-    // --- Data de Respuestas del Chatbot ---
     const KEYWORD_RESPONSE = '¡Excelente pregunta! Para declarar una variable entera en C++ y asignarle un valor, usas la palabra clave <code class="code-inline">int</code>.<br><br>Por ejemplo: <code class="code-inline">int edad = 30;</code> ¡Inténtalo ahora en el editor!';
     const DEFAULT_RESPONSE = 'No he entendido tu consulta, escríbela de nuevo';
     const KEYWORDS = ['ayuda', 'verificar', 'variable', 'variables'];
 
-    // --- Data de Ejercicios (Mantenida) ---
     const exercisesData = {
         'ex1': {
             regex: /#include\s*<iostream>.*using\s+namespace\s+std;.*int\s+main\s*\(\)\s*\{[^}]*cout\s*<<\s*["']¡Hola, mundo!["']\s*<<\s*endl;[^}]*return\s+0;\s*\}/si,
@@ -52,7 +46,6 @@ int main() {
         }
     };
 
-    // --- Variables de Estado y DOM info-column (Mantenidas) ---
     let currentExerciseId = null;
     const activeTabClass = 'info-column__tab--active';
     const hiddenClass = 'info-column__content--hidden';
@@ -66,7 +59,6 @@ int main() {
     // LÓGICA DE RETROALIMENTACIÓN VISUAL
     // =========================================================
 
-    /** Muestra un mensaje temporal en el terminal y el pie de página. */
     const showTerminalMessage = (message, statusText, isError = false) => {
         const color = isError ? '#ff5555' : 'var(--color-accent)';
         
@@ -156,7 +148,6 @@ int main() {
                 codeEditor.value = content;
                 showTerminalMessage(`Archivo "${filename}" cargado en el editor.`, "Cargado ✔️", false);
                 
-                // Resetear estado de ejercicio al cargar un archivo
                 currentExerciseId = null;
                 exerciseCards.forEach(c => c.classList.remove(activeExerciseClass));
                 
@@ -254,7 +245,6 @@ int main() {
     // LÓGICA DE BOTONES DE CONTROL (COPIAR, GUARDAR, CARGAR, RESET)
     // =========================================================
 
-    // 1. Botón Copiar
     if (copyButton) {
         copyButton.addEventListener('click', async () => {
             try {
@@ -271,7 +261,6 @@ int main() {
         });
     }
 
-    // 2. Lógica del menú Guardar (Confirmar)
     if (saveButtonConfirm) {
         saveButtonConfirm.addEventListener('click', () => {
             const filename = saveFilenameInput.value.trim();
@@ -290,7 +279,6 @@ int main() {
         });
     }
 
-    // 3. Botón Reset
     if (resetButton) {
         resetButton.addEventListener('click', () => {
             codeEditor.value = ''; 
@@ -400,7 +388,6 @@ int main() {
         });
     }
 
-    // --- INICIALIZACIÓN ---
     if (codeEditor) {
         codeEditor.value = ''; 
     }
