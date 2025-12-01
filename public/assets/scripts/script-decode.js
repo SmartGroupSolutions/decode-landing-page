@@ -71,7 +71,7 @@ int main() {
 
 
     // =========================================================
-    // LÓGICA DE ALMACENAMIENTO (LOCALSTORAGE)
+    // LÓGICA DE ALMACENAMIENTO LOCAL (LOCALSTORAGE)
     // =========================================================
 
     const getSavedFiles = () => {
