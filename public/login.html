@@ -36,20 +36,52 @@
                 <img src="assets/icons/code.svg" alt="">
                 <h2>Iniciar sesión</h2>
             </div>
-            <div class="login__input">
-                <p>Email</p>
-                <input type="text" name="" id="">
-            </div>
-            <div class="login__input">
-                <p>Contraseña</p>
-                <input type="text" name="" id="">
-            </div>
-            <div class="login__enter">
-                <input type="button" value="Iniciar sesión" class="btn">
-                <p>¿No tienes cuenta? <a href="register.html">Regístrate</a></p>
-            </div>
+
+            <form class="login-form">
+
+                <div class="login__input">
+                    <p>Email</p>
+                    <input type="email" id="li__email" required>
+                </div>
+
+                <div class="login__input">
+                    <p>Contraseña</p>
+                    <input type="password" id="li__contraseña" required>
+                    <p style="color:rgb(202, 17, 17); display: none;" id="cuenta__equivocada">Email o contraseña incorrectas</p>
+                </div>
+
+                <div class="login__enter">
+                    <button type="submit" class="btn">Iniciar sesión</button>
+                    <p>¿No tienes cuenta? <a href="register.html">Regístrate</a></p>
+                    <p>¿Olvidaste tu contraseña? <a href="recover.html">Recupera tu cuenta</a></p>
+                </div>
+
+            </form>
         </div>
     </section>
-    
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector(".login-form");
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("li__email").value;
+            const pass = document.getElementById("li__contraseña").value;
+            const msgCuenta = document.getElementById("cuenta__equivocada");
+
+            const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            const encontrado = usuarios.find(u => u.email === email && u.contraseña === pass);
+
+            if (encontrado) {
+                localStorage.setItem("usuarioActual", JSON.stringify(encontrado));
+                msgCuenta.style.display = "none";
+                window.location.href = "home.html";
+            } else {
+                msgCuenta.style.display = "block";
+          
+            }
+        });
+    });
+</script>
 </body>
 </html>

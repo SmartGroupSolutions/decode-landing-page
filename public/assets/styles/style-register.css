@@ -78,14 +78,14 @@
     margin-bottom: 2rem;
 }
 
-.register__enter input {
+.register__enter button {
     height: 50px;
     font-size: 1.5rem;
     background-color: var(--color-accent);
     color: white;
 }
 
-.register__enter input:hover {
+.register__enter button:hover {
     background-color: rgb(5, 132, 75);
 }
 
