@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comunidad | Decode</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/styles/style-comunidad.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="assets/styles/styles.css"/>
+
+    <link rel="stylesheet" href="assets/styles/community.css"/>
+
+    <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <section class="header__logo">
+        <img src="assets/icons/logo.png" alt="" srcset="">
+        <div class="header__title">
+            <h2 class="header__title-main">Decode</h2>
+            <p class="header__title-sub">SmartSolutions</p>
+        </div>
+    </section>
+
+    <section class="header__interaction">
+        <nav class="header__nav">
+            <a href="index.html" class="header__nav-link">Inicio</a>
+            <a href="comunidad.html" class="header__nav-link community-active">Comunidad</a>
+            <a href="#" class="header__nav-link">Sobre nosotros</a>
+            <a href="#" class="header__nav-link">Suscripciones</a>
+        </nav>
+
+        <div class="header__actions">
+            <input type="button" value="Iniciar Sesión" class="btn btn--primary header__btn-login" onclick="window.location.href='login.html'">
+            <input type="button" value="Empieza gratis" class="btn btn--secondary header__btn-register" onclick="window.location.href='register.html'">
+        </div>
+    </section>
+</header>
+
+<main class="community-page">
+
+    <section class="search-section">
+        <div class="search-header">
+            <h1 class="text-gradient">Muro de la Comunidad</h1>
+            <p>Conecta, pregunta y comparte con otros estudiantes.</p>
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Buscar por tema o palabra clave..." class="search-input">
+            <button class="btn btn--primary btn-search-icon">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+        </div>
+
+        <div class="filter-tags">
+            <span class="filter-label">Etiquetas populares:</span>
+            <div class="tags-wrapper">
+                <button class="tag-pill active">Todos</button>
+                <button class="tag-pill">#Python</button>
+                <button class="tag-pill">#JavaScript</button>
+                <button class="tag-pill">#React</button>
+                <button class="tag-pill">#Bugs</button>
+                <button class="tag-pill">#Carrera</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="community-layout">
+
+        <section class="feed-column">
+
+            <div class="card create-post-box">
+                <div class="box-header">
+                    <div class="user-circle-img"></div>
+                    <span class="box-title">Crear publicación</span>
+                </div>
+                <textarea class="post-input" placeholder="¿Qué quieres compartir hoy?"></textarea>
+                <div class="box-footer">
+                    <div class="box-icons">
+                        <i class="fas fa-image"></i>
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <button class="btn btn--primary btn-small">Publicar</button>
+                </div>
+            </div>
+
+            <div class="posts-list">
+
+                <article class="card post-item">
+                    <div class="post-top">
+                        <div class="author-info">
+                            <div class="user-circle-img"></div> <div>
+                            <h4 class="author-name">Carlos Perez</h4>
+                            <span class="post-date">Hace 2 horas</span>
+                        </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h options-icon"></i>
+                    </div>
+
+                    <div class="post-body">
+                        <p>¿Alguien me puede explicar la diferencia entre `let` y `var` en JavaScript? Estoy un poco confundido con el scope.</p>
+                    </div>
+
+                    <div class="post-tags">
+                        <span class="tag">#JavaScript</span>
+                        <span class="tag">#Duda</span>
+                    </div>
+
+                    <div class="post-interactions">
+                        <button class="interact-btn"><i class="far fa-heart"></i> 12</button>
+                        <button class="interact-btn"><i class="far fa-comment"></i> 4</button>
+                        <button class="interact-btn"><i class="far fa-share-square"></i></button>
+                    </div>
+
+                    <div class="comments-area">
+                        <div class="comment-bubble">
+                            <strong>Ana:</strong> <span>`let` tiene alcance de bloque y `var` de función. ¡Usa siempre `let`!</span>
+                        </div>
+                        <input type="text" placeholder="Escribe un comentario..." class="comment-write">
+                    </div>
+                </article>
+
+                <article class="card post-item">
+                    <div class="post-top">
+                        <div class="author-info">
+                            <div class="user-circle-img"></div>
+                            <div>
+                                <h4 class="author-name">Paula Montoya</h4>
+                                <span class="post-date">Hace 5 horas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-body">
+                        <p>¡Logré terminar el desafío final de C++! Gracias a todos por la ayuda con los punteros. 🚀</p>
+                    </div>
+
+                    <div class="post-tags">
+                        <span class="tag">#C++</span>
+                        <span class="tag">#Logro</span>
+                    </div>
+
+                    <div class="post-interactions">
+                        <button class="interact-btn"><i class="far fa-heart"></i> 45</button>
+                        <button class="interact-btn"><i class="far fa-comment"></i> 10</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <aside class="sidebar-column">
+            <div class="card sidebar-box">
+                <h3>Tendencias</h3>
+                <ul class="trends-list">
+                    <li>#InteligenciaArtificial <span>New</span></li>
+                    <li>#DesarrolloWeb <span>+100 posts</span></li>
+                    <li>#PythonBasico <span>Trending</span></li>
+                </ul>
+            </div>
+
+            <div class="card sidebar-box">
+                <h3>Reglas</h3>
+                <p class="rules-text">1. Sé respetuoso.</p>
+                <p class="rules-text">2. Usa etiquetas correctas.</p>
+                <p class="rules-text">3. No spam.</p>
+            </div>
+        </aside>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__bottom">
+            <p class="footer__copyright">SmartSolutions © 2025. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
