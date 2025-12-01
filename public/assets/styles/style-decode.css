@@ -239,7 +239,6 @@
     font-size: 0.85rem;
 }
 
-/* EDITOR CONTROLS (Updated for hover menus) */
 .editor__controls {
     display: flex;
     justify-content: flex-end;
@@ -266,16 +265,14 @@
     transform: translateY(1px); 
 }
 
-/* Contenedor para los botones con sub-menú (Load/Save) */
 .editor__control-group {
     position: relative; 
     display: inline-block; 
 }
 
-/* Base style for hover menus (Load and Save) */
 .editor__load-menu, .editor__save-menu {
     position: absolute;
-    top: 35px; /* CORRECCIÓN: Ajustado a 35px (altura del botón) para eliminar el margen */
+    top: 35px; 
     right: 0;
     background-color: #272B38; 
     border: 1px solid var(--color-border);
@@ -285,10 +282,9 @@
     color: var(--color-white);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     min-width: 250px;
-    display: none; /* Oculto por defecto */
+    display: none; 
 }
 
-/* Mostrar menú al hacer hover en el grupo de control */
 .editor__control-group:hover .editor__load-menu {
     display: block;
 }
@@ -297,7 +293,6 @@
     display: flex; 
 }
 
-/* Estilos de Menú Guardar (Solo propiedades de layout, no display) */
 .editor__save-menu {
     flex-direction: row;
     align-items: center;
@@ -333,7 +328,6 @@
     min-width: 70px; 
 }
 
-/* Estilos de Menú Cargar (Lista Scrolleable) */
 .editor__load-menu h4 {
     font-size: 0.9rem;
     margin-bottom: 5px;
