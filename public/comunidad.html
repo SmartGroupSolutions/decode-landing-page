@@ -4,69 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comunidad | Decode</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="assets/styles/style-comunidad.css"/>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="assets/styles/styles.css"/>
-
-    <link rel="stylesheet" href="assets/styles/community.css"/>
-
     <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/styles/style-comunidad.css"/>
 </head>
-
 <body>
 
-<header class="header">
-    <section class="header__logo">
-        <img src="assets/icons/logo.png" alt="" srcset="">
-        <div class="header__title">
-            <h2 class="header__title-main">Decode</h2>
-            <p class="header__title-sub">SmartSolutions</p>
-        </div>
-    </section>
+<header class="main-header">
+    <div class="main-header__avatar">
+        <img class="main-header__avatar-img" src="assets/images/Laufey-avatar.jpg" alt="Avatar">
+    </div>
+    <a href="#" class="main-header__logo">Decode</a>
 
-    <section class="header__interaction">
-        <nav class="header__nav">
-            <a href="index.html" class="header__nav-link">Inicio</a>
-            <a href="comunidad.html" class="header__nav-link community-active">Comunidad</a>
-            <a href="#" class="header__nav-link">Sobre nosotros</a>
-            <a href="#" class="header__nav-link">Suscripciones</a>
-        </nav>
+    <button class="main-header__menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <div class="header__actions">
-            <input type="button" value="Iniciar Sesión" class="btn btn--primary header__btn-login" onclick="window.location.href='login.html'">
-            <input type="button" value="Empieza gratis" class="btn btn--secondary header__btn-register" onclick="window.location.href='register.html'">
-        </div>
-    </section>
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="home.html" class="dropdown-item">
+            <i class="fas fa-home"></i> Inicio
+        </a>
+        <a href="onboarding.html" class="dropdown-item">
+            <i class="fas fa-bolt"></i> Rutas
+        </a>
+        <a href="comunidad.html" class="dropdown-item">
+            <i class="fas fa-users"></i> Comunidad
+        </a>
+        <a href="profile.html" class="dropdown-item">
+            <i class="fas fa-user"></i> Perfil
+        </a>
+    </div>
 </header>
 
 <main class="community-page">
 
     <section class="search-section">
         <div class="search-header">
-            <h1 class="text-gradient">Muro de la Comunidad</h1>
+            <h1>Muro de la Comunidad</h1>
             <p>Conecta, pregunta y comparte con otros estudiantes.</p>
         </div>
 
         <div class="search-container">
-            <input type="text" placeholder="Buscar por tema o palabra clave..." class="search-input">
-            <button class="btn btn--primary btn-search-icon">
-                <i class="fas fa-search"></i> Buscar
+            <input type="text" placeholder="Buscar por tema..." class="search-input">
+            <button class="btn-search-icon">
+                <i class="fas fa-search"></i>
             </button>
         </div>
 
         <div class="filter-tags">
-            <span class="filter-label">Etiquetas populares:</span>
             <div class="tags-wrapper">
                 <button class="tag-pill active">Todos</button>
                 <button class="tag-pill">#Python</button>
                 <button class="tag-pill">#JavaScript</button>
                 <button class="tag-pill">#React</button>
                 <button class="tag-pill">#Bugs</button>
-                <button class="tag-pill">#Carrera</button>
             </div>
         </div>
     </section>
@@ -74,7 +67,6 @@
     <div class="community-layout">
 
         <section class="feed-column">
-
             <div class="card create-post-box">
                 <div class="box-header">
                     <div class="user-circle-img"></div>
@@ -86,19 +78,19 @@
                         <i class="fas fa-image"></i>
                         <i class="fas fa-code"></i>
                     </div>
-                    <button class="btn btn--primary btn-small">Publicar</button>
+                    <button class="btn-primary">Publicar</button>
                 </div>
             </div>
 
             <div class="posts-list">
-
                 <article class="card post-item">
                     <div class="post-top">
                         <div class="author-info">
-                            <div class="user-circle-img"></div> <div>
-                            <h4 class="author-name">Carlos Perez</h4>
-                            <span class="post-date">Hace 2 horas</span>
-                        </div>
+                            <div class="user-circle-img"></div>
+                            <div>
+                                <h4 class="author-name">Carlos Perez</h4>
+                                <span class="post-date">Hace 2 horas</span>
+                            </div>
                         </div>
                         <i class="fas fa-ellipsis-h options-icon"></i>
                     </div>
@@ -117,13 +109,6 @@
                         <button class="interact-btn"><i class="far fa-comment"></i> 4</button>
                         <button class="interact-btn"><i class="far fa-share-square"></i></button>
                     </div>
-
-                    <div class="comments-area">
-                        <div class="comment-bubble">
-                            <strong>Ana:</strong> <span>`let` tiene alcance de bloque y `var` de función. ¡Usa siempre `let`!</span>
-                        </div>
-                        <input type="text" placeholder="Escribe un comentario..." class="comment-write">
-                    </div>
                 </article>
 
                 <article class="card post-item">
@@ -131,7 +116,7 @@
                         <div class="author-info">
                             <div class="user-circle-img"></div>
                             <div>
-                                <h4 class="author-name">Paula Montoya</h4>
+                                <h4 class="author-name">Flavia Felix</h4>
                                 <span class="post-date">Hace 5 horas</span>
                             </div>
                         </div>
@@ -151,7 +136,61 @@
                         <button class="interact-btn"><i class="far fa-comment"></i> 10</button>
                     </div>
                 </article>
+                <article class="card post-item">
+                    <div class="post-top">
+                        <div class="author-info">
+                            <div class="user-circle-img"></div>
+                            <div>
+                                <h4 class="author-name">Bianzel Noriega</h4>
+                                <span class="post-date">Hace 8 horas</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h options-icon"></i>
+                    </div>
 
+                    <div class="post-body">
+                        <p>Estoy teniendo problemas con el <code>useEffect</code> en React. Se ejecuta en un bucle infinito. ¿Algún consejo para manejar bien las dependencias?</p>
+                    </div>
+
+                    <div class="post-tags">
+                        <span class="tag">#React</span>
+                        <span class="tag">#Frontend</span>
+                    </div>
+
+                    <div class="post-interactions">
+                        <button class="interact-btn"><i class="far fa-heart"></i> 28</button>
+                        <button class="interact-btn"><i class="far fa-comment"></i> 7</button>
+                        <button class="interact-btn"><i class="far fa-share-square"></i></button>
+                    </div>
+                </article>
+
+                <article class="card post-item">
+                    <div class="post-top">
+                        <div class="author-info">
+                            <div class="user-circle-img"></div>
+                            <div>
+                                <h4 class="author-name">Lucas Méndez</h4>
+                                <span class="post-date">Ayer</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h options-icon"></i>
+                    </div>
+
+                    <div class="post-body">
+                        <p>Acabo de descubrir las listas por comprensión en Python y mi código se redujo a la mitad. 🐍 ¡100% recomendado!</p>
+                    </div>
+
+                    <div class="post-tags">
+                        <span class="tag">#Python</span>
+                        <span class="tag">#Tips</span>
+                    </div>
+
+                    <div class="post-interactions">
+                        <button class="interact-btn"><i class="far fa-heart"></i> 56</button>
+                        <button class="interact-btn"><i class="far fa-comment"></i> 3</button>
+                        <button class="interact-btn"><i class="far fa-share-square"></i></button>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -159,30 +198,37 @@
             <div class="card sidebar-box">
                 <h3>Tendencias</h3>
                 <ul class="trends-list">
-                    <li>#InteligenciaArtificial <span>New</span></li>
-                    <li>#DesarrolloWeb <span>+100 posts</span></li>
-                    <li>#PythonBasico <span>Trending</span></li>
+                    <li>#IA <span>New</span></li>
+                    <li>#WebDev <span>+100</span></li>
+                    <li>#Python <span>Hot</span></li>
                 </ul>
-            </div>
-
-            <div class="card sidebar-box">
-                <h3>Reglas</h3>
-                <p class="rules-text">1. Sé respetuoso.</p>
-                <p class="rules-text">2. Usa etiquetas correctas.</p>
-                <p class="rules-text">3. No spam.</p>
             </div>
         </aside>
 
     </div>
 </main>
 
-<footer class="footer">
-    <div class="footer__container">
-        <div class="footer__bottom">
-            <p class="footer__copyright">SmartSolutions © 2025. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+<nav class="bottom-nav">
+    <a href="home.html" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
+    <a href="onboarding.html" class="nav-item"><i class="fas fa-bolt"></i><span>Rutas</span></a>
+    <a href="comunidad.html" class="nav-item active"><i class="fas fa-users"></i><span>Comunidad</span></a>
+    <a href="profile.html" class="nav-item"><i class="fas fa-user"></i><span>Perfil</span></a>
+</nav>
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
 
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('show');
+    });
+
+
+    document.addEventListener('click', (e) => {
+        if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+        }
+    });
+</script>
 </body>
 </html>
