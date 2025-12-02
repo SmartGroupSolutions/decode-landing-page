@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Decode</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
     <link rel="stylesheet" href="assets/styles/style-register.css">
+    <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="header">
         <section class="header__logo">
-            <img src="assets/icons/logo.png" alt="" srcset="">
+            <img src="assets/icons/logo.png" alt="">
             <div class="header__title">
                 <h2 class="header__title-main">Decode</h2>
                 <p class="header__title-sub">SmartSolutions</p>
             </div>
         </section>
 
-        <section class="header__interaction">
-            <nav class="header__nav">
-                <a href="index.html" class="header__nav-link">Inicio</a>
-                <a href="#" class="header__nav-link">Comunidad</a>
-                <a href="#" class="header__nav-link">Sobre nosotros</a>
-                <a href="#" class="header__nav-link">Suscripciones</a>
-            </nav>
+        <button class="header__menu-btn" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
 
-            
-        </section>
+        <nav class="header__nav">
+            <a href="index.html" class="header__nav-link">Inicio</a>
+            <a href="comunidad.html" class="header__nav-link">Comunidad</a>
+            <a href="#" class="header__nav-link">Sobre nosotros</a>
+            <a href="#" class="header__nav-link">Suscripciones</a>
+        </nav>
+
+        <div class="header__overlay-menu" id="header-overlay">
+            <div class="header__overlay-content">
+                <button class="header__close-btn" id="menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="index.html" class="header__overlay-link">Inicio</a>
+                <a href="comunidad.html" class="header__overlay-link">Comunidad</a>
+                <a href="#" class="header__overlay-link">Sobre nosotros</a>
+                <a href="#" class="header__overlay-link">Suscripciones</a>
+            </div>
+        </div>
     </header>
 
     <section class="sesion">
@@ -54,7 +67,9 @@
                 <div class="register__input">
                     <p>Email</p>
                     <input type="email" id="ri__email" required>
-                    <p style="color:rgb(202, 17, 17); display: none;" id="email__tomado">Este email ya ha sido tomado</p>
+                    <p style="color:rgb(202, 17, 17); display: none;" id="email__tomado">
+                        Este email ya ha sido tomado
+                    </p>
                 </div>
 
                 <div class="register__input">
@@ -66,13 +81,38 @@
                     <button type="submit" class="btn">Registrarse</button>
                     <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a></p>
                 </div>
-
             </form>
         </div>
     </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Toggle menú
+            const menuToggle = document.getElementById("menu-toggle");
+            const menuClose = document.getElementById("menu-close");
+            const overlay = document.getElementById("header-overlay");
+
+            if (menuToggle && overlay) {
+                menuToggle.addEventListener("click", () => {
+                    overlay.classList.add("header__overlay-menu--active");
+                });
+            }
+
+            if (menuClose && overlay) {
+                menuClose.addEventListener("click", () => {
+                    overlay.classList.remove("header__overlay-menu--active");
+                });
+            }
+
+            if (overlay) {
+                overlay.addEventListener("click", (e) => {
+                    if (e.target === overlay) {
+                        overlay.classList.remove("header__overlay-menu--active");
+                    }
+                });
+            }
+
+            // LÓGICA REGISTER (igual que tu versión)
             const form = document.querySelector(".register-form");
 
             form.addEventListener("submit", function(e) {
@@ -107,6 +147,5 @@
             });
         });
     </script>
-
 </body>
 </html>

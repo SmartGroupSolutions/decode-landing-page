@@ -120,15 +120,19 @@ html, body {
 }
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+        flex-direction: row;              /* SIEMPRE en línea */
+        justify-content: space-between;   /* logo a la izquierda, menú a la derecha */
+        align-items: center;
+        text-align: left;
+        gap: 0;
     }
+
     .header__logo {
-        margin-left: 0;
+        margin-left: 1rem;                /* opcional, solo separa del borde */
     }
+
     .header__interaction {
-        margin-right: 0;
+        margin-right: 1rem;               /* si lo sigues usando en otras páginas */
     }
 }
 .header__nav {
