@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode – Reto Python</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="assets/styles/style-challenge.css">
+    <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="main-header__avatar">
+            <img class="header__profile-icon" src="assets/images/Laufey-avatar.jpg" alt="">
+        </div>
+        <a href="home.html" class="main-header__logo">Decode</a>
+        <button class="main-header__menu-btn" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="home.html" class="dropdown-menu__item"><i class="fas fa-home"></i>Inicio</a>
+            <a href="onboarding.html" class="dropdown-menu__item"><i class="fas fa-bolt"></i>Rutas</a>
+            <a href="comunidad.html" class="dropdown-menu__item"><i class="fas fa-users"></i>Comunidad</a>
+            <a href="profile.html" class="dropdown-menu__item"><i class="fas fa-user"></i>Perfil</a>
+        </div>
+    </header>
+
+    <main class="main-layout active-chat-view" id="main-layout">
+        <!-- ====== COLUMNA CHAT ====== -->
+        <section class="chat-column" data-view="chat">
+            <div class="chat-column__content">
+                <div class="chat-message chat-message--tutor">
+                    <p class="chat-message__time">12:34 PM</p>
+                    <p class="chat-message__text">
+                        <strong style="color: var(--color-accent);">¡Hola!</strong> Soy tu tutor para este 
+                        <strong>reto de Python</strong>. Debes encontrar y corregir un bug en el código del editor.
+                        <br><br>
+                        Escribe <code class="code-inline">ayuda</code> en el chat si necesitas una pista (sin solución directa 😉).
+                    </p>
+                </div>
+            </div>
+
+            <div class="chat-column__input">
+                <input type="text" placeholder="Escribe tu duda o escribe 'ayuda' para una pista...">
+                <button class="btn--send">➤</button>
+            </div>
+        </section>
+
+        <!-- ====== COLUMNA EDITOR ====== -->
+        <section class="editor-column" data-view="editor">
+            <div class="editor__header">
+                <h2>Reto: encuentra el bug en el código Python</h2>
+                <p>Corrige el código y luego presiona "Verificar reto".</p>
+            </div>
+
+            <div class="editor__file-tabs">
+                <span class="editor__file-tab editor__file-tab--active">bug.py</span>
+            </div>
+
+            <div class="editor__controls">
+                <button class="editor__btn btn--compile">Verificar reto</button>
+
+                <button class="editor__btn" id="btn-copy">Copiar</button>
+
+                <button class="editor__btn" id="btn-reset">Reset</button>
+            </div>
+
+            <div class="editor__code-area">
+                <textarea id="main-code-editor" class="editor__textarea"></textarea>
+            </div>
+
+            <div class="editor__terminal-header">
+                <button class="editor__terminal-btn editor__terminal-btn--active">Salida</button>
+            </div>
+
+            <div class="editor__terminal-area">
+                <pre class="terminal__output">
+<span style="color: #4B5563;">Listo. Revisa el código y busca el bug en la suma.</span>
+                </pre>
+            </div>
+
+            <div class="editor__footer" style="display: flex; align-items: center; justify-content: flex-start;">
+                <span class="editor__footer-item" style="margin-right: 20px;">Lenguaje: Python</span>
+                <span class="editor__footer-item editor__footer-item--status"></span>
+            </div>
+        </section>
+
+        <!-- ====== COLUMNA INFO (RETO) ====== -->
+        <section class="info-column" data-view="info">
+            <div class="info-column__content">
+                <div class="theory-section">
+                    <h3 class="theory__title">Reto: suma correcta</h3>
+                    <p class="theory__subtitle">Encuentra el bug en un bucle <code class="code-inline">for</code>.</p>
+
+                    <div class="theory__card">
+                        <h4 class="theory__card-title">Descripción del reto</h4>
+                        <p class="theory__card-text">
+                            En el editor tienes una función de Python llamada 
+                            <code class="code-inline">suma_lista</code> que intenta sumar todos los elementos
+                            de una lista. Sin embargo, el resultado es incorrecto porque hay un 
+                            <strong>bug en el bucle</strong>.
+                        </p>
+                        <p class="theory__card-text">
+                            <strong>Tu misión:</strong>
+                            <ul style="padding-left: 18px; margin-top: 8px;">
+                                <li>Identificar la línea que causa el error.</li>
+                                <li>Corregir la lógica para que la suma sea correcta.</li>
+                                <li>No cambies nombres de variables ni la estructura general, solo arregla el cálculo.</li>
+                            </ul>
+                        </p>
+                        <p class="theory__card-text">
+                            Cuando creas que está bien, haz clic en 
+                            <strong>"Verificar reto"</strong>. Si lo logras, ganarás 
+                            <strong>+50 XP</strong>. 🎉
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====== NAV INFERIOR MÓVIL ====== -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-view="chat">
+            <i class="fas fa-comments"></i>
+            <span>Chat</span>
+        </button>
+        <button class="nav-item" data-view="editor">
+            <i class="fas fa-code"></i>
+            <span>Editor</span>
+        </button>
+        <button class="nav-item" data-view="info">
+            <i class="fas fa-flag-checkered"></i>
+            <span>Reto</span>
+        </button>
+    </nav>
+
+    <!-- ====== MODAL XP ====== -->
+    <div class="xp-modal" id="xp-modal">
+        <div class="xp-modal__content">
+            <div class="xp-modal__icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2>¡Reto completado!</h2>
+            <p>Has ganado <strong>+50 XP</strong> 🎉</p>
+            <button class="btn btn--primary" id="xp-modal-home">Volver al inicio</button>
+        </div>
+    </div>
+
+    <script src="assets/scripts/script-challenge.js"></script>
+</body>
+</html>
