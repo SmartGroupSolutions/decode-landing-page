@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode</title>
+    <link rel="stylesheet" href="assets/styles/styles.css"> 
+    <link rel="stylesheet" href="assets/styles/style-decode.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo-container">
+            <img src="assets/icons/logo.png" alt="DECODE Logo" class="header__logo">
+            <div class="header__text-container">
+                <h1 class="header__title">Decode</h1> 
+                <p class="header__subtitle">Tu tutor personal de programación</p>
+            </div>
+        </div>
+        <div class="header__right">
+            <button class="btn btn--compile">Compilar</button>
+            <div class="header__profile">
+                <span class="header__profile-icon">E</span>
+                <span class="header__profile-name">Estudiante</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        
+        <section class="chat-column">
+            
+            <div class="chat-column__content">
+                <div class="chat-message chat-message--tutor">
+                    <p class="chat-message__time">12:34 PM</p>
+                    <p class="chat-message__text">
+                        <strong style="color: var(--color-accent);">¡Hola!</strong> Soy tu tutor personal de C++. Pregúntame sobre cualquier tema, desde conceptos básicos hasta proyectos complejos. ¡Estoy listo para ayudarte a codificar!
+                    </p>
+                </div>
+            </div>
+            
+            <div class="chat-column__input">
+                <input type="text" placeholder="Pregúntame sobre C++...">
+                <button class="btn--send">➤</button>
+            </div>
+        </section>
+
+        <section class="editor-column">
+            <div class="editor__header">
+                <h2>Escribe y ejecuta tu código C++</h2>
+                <p>Tu espacio de programación personal</p>
+            </div>
+            
+            <div class="editor__file-tabs">
+                <span class="editor__file-tab editor__file-tab--active">main.cpp</span>
+            </div>
+
+            <div class="editor__controls">
+                <button class="editor__btn" id="btn-copy">Copiar</button>
+                
+                <div class="editor__control-group">
+                    <button class="editor__btn" id="btn-load">Cargar</button>
+                    <div class="editor__load-menu" id="load-menu">
+                        <h4>Archivos guardados (.txt)</h4>
+                        <ul id="saved-files-list">
+                            <li>No hay archivos guardados.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="editor__control-group">
+                    <button class="editor__btn" id="btn-save">Guardar</button>
+                    <div class="editor__save-menu" id="save-menu">
+                        <input type="text" id="save-filename" placeholder="Nombre de archivo (.txt)">
+                        <button class="btn" id="btn-save-confirm">Guardar</button>
+                    </div>
+                </div>
+
+                <button class="editor__btn" id="btn-reset">Reset</button>
+            </div>
+            <div class="editor__code-area">
+                <textarea id="main-code-editor" class="editor__textarea"></textarea>
+            </div>
+            
+            <div class="editor__terminal-header">
+                <button class="editor__terminal-btn editor__terminal-btn--active">Salida</button> 
+            </div>
+
+            <div class="editor__terminal-area">
+                <pre class="terminal__output">
+<span style="color: #999999;">Listo. Selecciona un ejercicio para comenzar a codificar.</span>
+                </pre>
+            </div>
+            
+            <div class="editor__footer">
+                <span class="editor__footer-item">Líneas: -</span>
+                <span class="editor__footer-item">Caracteres: -</span>
+                <span class="editor__footer-item">Lenguaje: C++</span>
+                <span class="editor__footer-item editor__footer-item--status">Listo para compilar</span>
+            </div>
+        </section>
+
+        <section class="info-column">
+            <div class="info-column__tabs">
+                <button class="info-column__tab info-column__tab--active" data-tab="theory" id="tab-theory">Teoría</button>
+                <button class="info-column__tab" data-tab="exercises" id="tab-exercises">Ejercicios</button>
+            </div>
+            
+            <div class="info-column__content">
+                <div class="theory-section tab-content" id="section-theory">
+                    <h3 class="theory__title">Conceptos Básicos</h3>
+                    <p class="theory__subtitle">Fundamentos esenciales</p>
+                    
+                    <div class="theory__card">
+                        <h4 class="theory__card-title">¿Qué es C++?</h4>
+                        <p class="theory__card-text">
+                            C++ es un lenguaje de programación potente y eficiente, perfecto para crear desde aplicaciones simples hasta sistemas complejos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="exercise-section tab-content info-column__content--hidden" id="section-exercises">
+                    <h3 class="exercise__title">Estructura básica</h3>
+                    
+                    <div class="exercise__card" data-exercise-id="ex1">
+                        <div class="exercise__card-header">
+                            <h4 class="exercise__card-title">1. Primer programa: "Hola Mundo"</h4>
+                            <span class="exercise__status-indicator" id="status-ex1"></span>
+                        </div>
+                        <p class="exercise__card-step">
+                            <strong>Objetivo:</strong> Imprime el mensaje "¡Hola, mundo!" en la consola.
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 1:</strong> Incluye la librería <code class="code-inline">#include &lt;iostream&gt;</code>
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 2:</strong> Declara el uso de <code class="code-inline">using namespace std;</code>
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 3:</strong> Define la función <code class="code-inline">int main()</code>
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 4:</strong> Dentro de <code class="code-inline">main()</code>, usa <code class="code-inline">cout</code> para imprimir el mensaje.
+                        </p>
+                        
+                        <div class="exercise__code-example">
+                            <pre>
+<span class="syntax--keyword">#include &lt;iostream&gt;</span>
+<span class="syntax--keyword">using namespace</span> <span class="syntax--type">std</span>;
+
+<span class="syntax--type">int main()</span> {
+  <span class="syntax--keyword">cout</span> &lt;&lt; <span class="syntax--string">"¡Hola, mundo!"</span> &lt;&lt; <span class="syntax--keyword">endl</span>;
+  <span class="syntax--keyword">return</span> 0;
+}
+                            </pre>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise__card" data-exercise-id="ex2">
+                        <div class="exercise__card-header">
+                            <h4 class="exercise__card-title">2. Variables y Tipos de Datos</h4>
+                            <span class="exercise__status-indicator" id="status-ex2"></span>
+                        </div>
+                        <p class="exercise__card-step">
+                            <strong>Objetivo:</strong> Declara e imprime una variable entera y una de cadena.
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 1:</strong> Declara una variable entera <code class="code-inline">int edad;</code>
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 2:</strong> Declara una variable de cadena <code class="code-inline">string nombre;</code>
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 3:</strong> Asigna valores a ambas variables.
+                        </p>
+                        <p class="exercise__card-step">
+                            <strong>Paso 4:</strong> Imprime un mensaje que combine <code class="code-inline">nombre</code> y <code class="code-inline">edad</code>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="assets/scripts/script-decode.js"></script> 
+</body>
+</html>
