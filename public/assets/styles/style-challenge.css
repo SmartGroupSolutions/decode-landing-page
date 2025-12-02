@@ -1,0 +1,823 @@
+@charset "UTF-8";
+/* Se redefinen las variables para la paleta de colores claros */
+:root {
+      --color-dark-panel: #FFFFFF; /* White for main panels */
+      --color-dark-header: #F3F4F6; /* Light gray for headers/controls */
+      --color-chat-bg: #F8F9FA; /* Very light background for chat area */
+      --color-text-faded: #6B7280; /* Dark gray for secondary text */
+      --color-text-darker: #4B5563; /* Darker gray for general text */
+      --color-border: #E5E7EB; /* Light border lines */
+      --color-black: #1F2937; /* New variable for general dark text */
+
+      /* Syntax Colors (Adjusted for light background) */
+      --color-syntax-keyword: #007ACC; 
+      --color-syntax-type: #800080; 
+      --color-syntax-string: #A31515; 
+      
+      /* Accent Colors (Se mantienen) */
+      --color-primary: #5F4CE8; 
+      --color-accent: #2EB884; 
+      --color-white: #FFFFFF;
+}
+
+/* =========================================================
+      ESTILOS COMPARTIDOS
+========================================================= */
+.header__profile-icon, .tutor-card__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      font-weight: bold;
+      font-size: 14px;
+}
+
+.syntax--keyword { color: var(--color-syntax-keyword); }
+.syntax--type { color: var(--color-syntax-type); }
+.syntax--string { color: var(--color-syntax-string); }
+
+.code-inline {
+      /* Se cambia el fondo oscuro a uno claro */
+      background-color: #E5E7EB;
+      color: var(--color-black);
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Monaco', monospace;
+      font-size: 0.9em;
+}
+
+
+/* =========================================================
+      HEADER
+========================================================= */
+/* El header está definido como blanco, se mantiene */
+.main-header {
+      height: 60px;
+      width: 100%;
+      background-color: white;
+      border-bottom: 1px solid var(--color-border); /* Usar variable de borde claro */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      position: relative;
+      top: 0;
+      z-index: 1000;
+}
+
+/** ESTILOS AÑADIDOS PARA EL BOTÓN DE MENÚ (fas fa-bars) **/
+.main-header__menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    /* Usar el color de texto principal de Decode (oscuro) */
+    color: var(--color-black); 
+    /* Eliminar cualquier relleno por defecto */
+    padding: 0; 
+}
+/** FIN DE ESTILOS AÑADIDOS **/
+
+/* Se asegura que el logo sea oscuro */
+.main-header__logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--color-black); 
+      text-decoration: none;
+      letter-spacing: 2px;
+}
+
+.dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 60px; /* Ajuste para el header de 60px */
+      right: 20px;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid var(--color-border); 
+      border-radius: 8px;
+      width: 200px;
+      flex-direction: column;
+    /** CAMBIO SOLICITADO: Añadir gap entre elementos **/
+    gap: 10px; 
+}
+
+
+
+.dropdown-menu.show {
+      display: flex;
+}
+
+.dropdown-menu__item {
+      padding: 12px 20px;
+      text-decoration: none;
+      color: var(--color-black); /* Color oscuro para el texto */
+      border-bottom: 1px solid var(--color-border);
+}
+
+
+.header__profile-icon, .tutor-card__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        font-weight: bold;
+        font-size: 14px;
+    object-fit: cover; /* AÑADIDO: Asegura que la imagen de perfil llene el círculo */
+}
+
+/* =========================================================
+      MAIN LAYOUT (3 Columns)
+========================================================= */
+.main-layout {
+      display: flex;
+      /* Para que el texto sea oscuro por defecto en el layout principal */
+      color: var(--color-black); 
+      height: calc(100vh - 60px); 
+}
+
+/* =========================================================
+      1. CHAT COLUMN
+========================================================= */
+.chat-column {
+      flex: 0 0 300px;
+      /* CAMBIO: Fondo claro */
+      background-color: var(--color-dark-panel); 
+      border-right: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+}
+
+.chat-column__content {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto;
+      /* CAMBIO: Fondo muy claro para el historial del chat */
+      background-color: var(--color-chat-bg); 
+      display: flex;
+      flex-direction: column;
+}
+
+.chat-message__time {
+      font-size: 0.7rem;
+      /* CAMBIO: Color de texto para el modo claro */
+      color: var(--color-text-faded); 
+      margin-bottom: 5px;
+}
+
+.chat-message__text {
+      /* CAMBIO: Fondo claro para la burbuja del tutor */
+      background-color: var(--color-dark-header); 
+      /* CAMBIO: Texto oscuro */
+      color: var(--color-black); 
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+}
+
+.chat-message__text--user {
+      background-color: var(--color-primary); 
+      color: var(--color-white); /* Mantener texto blanco en acento */
+}
+
+.chat-column__input {
+      padding: 10px 15px;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      background-color: var(--color-dark-panel);
+}
+
+.chat-column__input input {
+      flex-grow: 1;
+      /* CAMBIO: Fondo de input claro */
+      background-color: var(--color-dark-header);
+      border: 1px solid var(--color-border); /* Borde para visibilidad */
+      /* CAMBIO: Texto oscuro */
+      color: var(--color-black); 
+      padding: 10px;
+      border-radius: 20px;
+      margin-right: 10px;
+      outline: none;
+}
+
+
+/* =========================================================
+      2. EDITOR COLUMN
+========================================================= */
+.editor-column {
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+      min-width: 400px;
+      /* CAMBIO: Fondo blanco */
+      background-color: var(--color-white); 
+}
+
+.editor__header {
+      padding: 15px 20px 0;
+      /* Asegurar que el texto sea oscuro */
+      color: var(--color-black);
+}
+
+.editor__header p {
+      font-size: 0.8rem;
+      color: var(--color-text-faded);
+      margin-top: 5px;
+}
+
+.editor__file-tabs {
+      padding: 10px 20px 0;
+      /* CAMBIO: Fondo claro */
+      background-color: var(--color-dark-header);
+}
+
+.editor__file-tab {
+      /* CAMBIO: Tab activa blanca con texto oscuro */
+      background-color: var(--color-white); 
+      color: var(--color-black); 
+      padding: 5px 10px;
+      border-radius: 5px 5px 0 0;
+      font-size: 0.85rem;
+}
+
+/* EDITOR CONTROLS */
+.editor__controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 10px 20px;
+      /* CAMBIO: Fondo de controles claro */
+      background-color: var(--color-dark-header);
+}
+
+/* --------------------------------------------------------- */
+/* ¡CORRECCIÓN DE POSICIONAMIENTO! */
+/* Se añade el posicionamiento relativo al grupo de control */
+.editor__control-group {
+      position: relative; 
+      display: inline-block; /* Crucial para envolver solo el botón */
+}
+/* --------------------------------------------------------- */
+
+.editor__btn {
+      /* CAMBIO: Botones con fondo blanco y borde oscuro */
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-black);
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      height: 35px; 
+      transition: all 0.1s ease; 
+}
+
+.editor__btn:active {
+      /* CAMBIO: Estado activo claro */
+      background-color: var(--color-border); 
+      border-color: var(--color-primary);
+      transform: translateY(1px); 
+}
+
+/* Base style for hover menus (Load and Save) */
+.editor__load-menu, .editor__save-menu {
+      position: absolute;
+      top: 35px; /* Ajuste: para que aparezca justo debajo del botón (35px de alto) */
+      right: 0; /* Ajuste: para que se alinee a la derecha del botón */
+      /* CAMBIO: Menús con fondo blanco y borde claro */
+      background-color: var(--color-white); 
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 10px;
+      z-index: 100; 
+      color: var(--color-black); /* Texto oscuro */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      min-width: 250px;
+      display: none; 
+}
+
+/* El menú de guardado debe ser flex para alinear input y botón */
+.editor__save-menu {
+      display: none; /* Se controla con JS */
+      flex-direction: row; /* Necesario para que el input y botón estén en línea */
+      gap: 10px;
+      align-items: center;
+}
+
+/* El menú de carga es una lista, se controla con 'block' o 'flex' en JS */
+.editor__load-menu {
+      flex-direction: column; /* Lo teníamos mal como flex, debe ser columna/block */
+}
+
+
+#save-filename {
+      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: 150px; 
+      padding: 5px;
+      border: 1px solid var(--color-border);
+      /* CAMBIO: Fondo de input claro */
+      background-color: var(--color-chat-bg); 
+      color: var(--color-black); /* Texto oscuro */
+      border-radius: 3px;
+      outline: none;
+      font-size: 0.8rem;
+      height: 30px; /* Altura del input */
+}
+
+#saved-files-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 150px; 
+      overflow-y: auto;
+      border-top: 1px solid var(--color-border);
+      padding-top: 5px;
+}
+
+#saved-files-list li {
+      padding: 5px;
+      font-size: 0.85rem;
+      color: var(--color-text-darker); /* Texto oscuro */
+      cursor: pointer;
+      transition: background-color 0.15s;
+      border-radius: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex; 
+      justify-content: space-between;
+      align-items: center;
+}
+
+#saved-files-list li:hover {
+      /* CAMBIO: Fondo claro en hover */
+      background-color: var(--color-dark-header);
+      color: var(--color-black);
+}
+
+.editor__code-area {
+      flex-grow: 1;
+      padding: 0; 
+      background-color: var(--color-white); /* Fondo blanco */
+      border-bottom: 1px solid var(--color-border);
+}
+
+.editor__textarea {
+      width: 100%;
+      height: 100%;
+      resize: none; 
+      border: none;
+      outline: none;
+      /* CAMBIO: Editor con fondo blanco */
+      background-color: var(--color-white); 
+      /* CAMBIO: Texto oscuro */
+      color: var(--color-black); 
+      font-family: 'Monaco', monospace;
+      font-size: 1rem;
+      padding: 10px 20px; 
+      line-height: 1.5;
+      white-space: pre; 
+      overflow-y: auto;
+}
+
+.editor__terminal-header {
+      display: flex;
+      padding: 10px 20px;
+      /* CAMBIO: Fondo de terminal header claro */
+      background-color: var(--color-dark-header); 
+      gap: 10px;
+}
+
+.editor__terminal-btn {
+      /* CAMBIO: Botón con fondo claro */
+      background: var(--color-border);
+      border: none;
+      color: var(--color-black); /* Texto oscuro */
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+}
+
+.editor__terminal-btn--active {
+      /* CAMBIO: Botón activo con fondo un poco más oscuro */
+      background-color: #D1D5DB;
+}
+
+.editor__terminal-area {
+      height: 150px; 
+      overflow-y: auto;
+      padding: 10px 20px;
+      /* CAMBIO: Área de terminal con fondo claro y texto oscuro */
+      background-color: var(--color-chat-bg); 
+      color: var(--color-black); 
+      font-family: 'Monaco', monospace;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--color-border);
+}
+
+.editor__footer {
+      display: flex;
+      padding: 5px 20px;
+      /* CAMBIO: Footer con fondo claro */
+      background-color: var(--color-dark-header);
+      color: var(--color-text-darker); /* Texto oscuro */
+}
+
+
+/* =========================================================
+      3. INFO COLUMN
+========================================================= */
+.info-column {
+      flex: 0 0 300px; 
+      /* CAMBIO: Fondo blanco */
+      background-color: var(--color-white); 
+      border-left: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+}
+
+.info-column__tabs {
+      display: flex;
+      /* CAMBIO: Fondo de tabs claro */
+      background-color: var(--color-dark-header);
+      padding: 5px 10px;
+      justify-content: space-around;
+      border-bottom: 1px solid var(--color-border);
+}
+
+.info-column__tab {
+      flex: 1;
+      background: none;
+      border: none;
+      /* CAMBIO: Texto de tabs inactivos oscuro */
+      color: var(--color-text-faded); 
+      padding: 10px 0;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+}
+
+.info-column__tab--active {
+      /* CAMBIO: Texto de tab activo oscuro */
+      color: var(--color-black); 
+      border-bottom: 3px solid var(--color-primary); /* Se usa color primario como acento */
+}
+
+.info-column__content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+}
+
+.info-column__content--hidden {
+      display: none;
+}
+
+.theory-section, .exercise-section {
+      color: var(--color-black); /* Texto oscuro */
+}
+
+.theory__subtitle {
+      font-size: 0.8rem;
+      color: var(--color-text-faded); /* Texto atenuado oscuro */
+      margin-bottom: 20px;
+}
+
+.theory__card {
+      /* CAMBIO: Fondo blanco de la tarjeta */
+      background-color: var(--color-white); 
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid var(--color-border); /* Borde claro */
+}
+
+.theory__card-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--color-text-darker); /* Texto oscuro */
+}
+
+/* === ESTILOS DE TARJETA DE EJERCICIO === */
+.exercise__card {
+      margin-top: 20px;
+      /* CAMBIO: Fondo blanco de la tarjeta */
+      background-color: var(--color-white); 
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border); /* Borde claro */
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 15px;
+}
+
+.exercise__card:hover {
+      border-color: var(--color-primary); /* Hover con acento */
+}
+
+.exercise__card--active {
+      border-color: var(--color-primary) !important; 
+      box-shadow: 0 0 5px rgba(95, 76, 232, 0.2); /* Sombra más sutil */
+}
+
+.exercise__card-step {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--color-text-darker); /* Texto oscuro */
+}
+
+.exercise__code-example {
+      /* CAMBIO: Fondo claro para el ejemplo de código */
+      background-color: var(--color-chat-bg); 
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-family: 'Monaco', monospace;
+      font-size: 0.9rem;
+      color: var(--color-black); /* Texto oscuro */
+}
+
+/* === ESTILOS ADICIONALES PARA EL JS === */
+/* Estilo para el botón de Compilar */
+.btn--compile {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border: 1px solid var(--color-primary);
+}
+.btn--compile:active {
+      background-color: #4b39b3; /* Un tono más oscuro de primary */
+      border-color: #4b39b3;
+      transform: translateY(1px); 
+}
+
+/* Estilo para el icono de perfil */
+.main-header__avatar {
+      display: flex;
+      align-items: center;
+}
+
+/* Estilo para el botón de enviar chat */
+.btn--send {
+      /* Se asume que este es un botón de acento */
+      background-color: var(--color-primary); 
+      color: var(--color-white);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.15s;
+}
+
+.btn--send:hover {
+      background-color: #4b39b3; 
+}
+
+/* Estilo para el indicador de ejercicio completado */
+.exercise__status-indicator--completed::before {
+      content: "✓";
+      color: var(--color-accent);
+      margin-left: 5px;
+      font-weight: bold;
+}
+
+/* Estilos para el botón de eliminar archivo */
+.delete-file-btn {
+      background: #FF5555;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0 6px;
+      margin-left: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.7rem;
+}
+
+/* =========================================================
+      CORRECCIÓN DE BOTÓN DE GUARDAR EN MENÚ
+========================================================= */
+#btn-save-confirm {
+      /* Sobreescribe las reglas de la clase genérica .btn */
+      height: 30px; /* Ajusta la altura para que coincida con el input */
+      padding: 0 10px; /* Reduce el relleno vertical */
+      min-width: 60px; /* Establece un ancho mínimo razonable */
+      font-size: 0.8rem; /* Tamaño de fuente más pequeño */
+      flex-shrink: 0; /* Evita que el botón se achique si no hay espacio */
+      /* Estilos para que se parezca al botón de compilar, pero sin borde extra */
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      transition: background-color 0.15s ease;
+}
+
+#btn-save-confirm:active {
+      background-color: #4b39b3; /* Tono de Primary más oscuro */
+}
+
+/* =========================================================
+    RESPONSIVE DESIGN (Navegación Inferior y Layout Apilado)
+========================================================= */
+
+/* Mobile Navigation Bar (Oculta por defecto en Desktop) */
+.bottom-nav {
+    display: none; /* Se mostrará solo en el media query */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; 
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-text-faded); /* Color de texto inactivo */
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    padding: 5px;
+    height: 100%;
+}
+
+.bottom-nav .nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+}
+
+.bottom-nav .nav-item.active {
+    color: var(--color-primary); /* Color de acento para el ítem activo */
+}
+
+
+/* --- Media Query: Pantallas Pequeñas/Móviles (max-width: 900px) --- */
+@media (max-width: 900px) {
+    
+    /* Ajuste para que el cuerpo no oculte la barra de navegación inferior */
+    body {
+        padding-bottom: 60px; /* Altura de bottom-nav */
+    }
+    
+    /* Ocultar el avatar para ahorrar espacio en el header */
+    .main-header__avatar {
+        display: none;
+    }
+
+    /* ------------------------------------------- */
+    /* Menú Desplegable (Overlay de Pantalla Completa) */
+    /* ------------------------------------------- */
+    .dropdown-menu {
+        top: 60px; /* Debajo del header */
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px); /* Ocupa el espacio restante de la pantalla */
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        background-color: var(--color-white);
+        padding: 20px;
+    }
+    
+    .dropdown-menu.show {
+        /* Fuerza la visualización flex en móvil para el overlay */
+        display: flex; 
+    }
+    
+    .dropdown-menu__item {
+        padding: 20px;
+        font-size: 1.1rem;
+    }
+
+    /* ------------------------------------------- */
+    /* Main Layout (Apilado) */
+    /* ------------------------------------------- */
+    .main-layout {
+        flex-direction: column; /* Apila las columnas */
+        /* Altura total menos el header (60px) y el bottom-nav (60px) */
+        height: calc(100vh - 60px - 60px); 
+        /* Asegura que el contenido activo ocupe el espacio */
+        overflow-y: hidden;
+    }
+
+    /* Todas las columnas ocupan el 100% del ancho */
+    .chat-column,
+    .editor-column,
+    .info-column {
+        flex: 0 0 100%; /* Elimina el flex-grow/shrink del desktop */
+        width: 100%;
+        min-width: unset;
+        border-right: none;
+        border-left: none;
+        height: 100%;
+        /* Oculta todas las secciones por defecto */
+        display: none; 
+        /* Importante: permite el scroll interno si el contenido es largo */
+        overflow-y: auto; 
+    }
+
+    /* Mostrar la barra de navegación inferior */
+    .bottom-nav {
+        display: flex;
+    }
+
+    /* ------------------------------------------- */
+    /* Clases de Control de Visibilidad (Toggled por JS) */
+    /* ------------------------------------------- */
+
+    /* CHAT VIEW ACTIVA */
+    .main-layout.active-chat-view .chat-column {
+        display: flex; /* La columna de chat necesita flex para su input fijo */
+        flex-direction: column;
+    }
+
+    /* EDITOR VIEW ACTIVA */
+    .main-layout.active-editor-view .editor-column {
+        display: flex; /* La columna de editor necesita flex para separar secciones */
+        flex-direction: column;
+    }
+    
+    /* INFO VIEW ACTIVA */
+    .main-layout.active-info-view .info-column {
+        display: flex; /* La columna de info necesita flex para que los tabs sean fijos */
+        flex-direction: column;
+    }
+    
+    /* Ajustes específicos de las vistas en móvil */
+    .editor__header {
+        display: none; /* Oculta el encabezado del editor para ahorrar espacio */
+    }
+}
+
+/* ===== MODAL DE XP (RETO PYTHON) ===== */
+.xp-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.xp-modal--visible {
+    display: flex;
+}
+
+.xp-modal__content {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 32px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    max-width: 320px;
+    width: 100%;
+}
+
+.xp-modal__icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    color: var(--color-primary);
+}
+
+.xp-modal__content h2 {
+    margin-bottom: 8px;
+    color: var(--color-black);
+}
+
+.xp-modal__content p {
+    margin-bottom: 16px;
+    color: var(--color-text-darker);
+}
