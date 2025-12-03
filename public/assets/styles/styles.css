@@ -284,6 +284,7 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 80px 20px; /* Un poco más de aire arriba y abajo */
 }
 
 .reviews__container {
@@ -292,61 +293,86 @@ html, body {
     align-items: center;
     margin-bottom: 4rem;
     gap: 3.5rem;
+    max-width: 1280px; /* Limitar el ancho máximo para pantallas gigantes */
 }
 
 .reviews__info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    text-align: center; /* Asegurar que el texto esté centrado */
 }
 
 .reviews__text {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    color: #9CA3AF; /* Un gris suave, no blanco puro, se ve más elegante */
+    margin-bottom: 10px;
 }
 
 .reviews__title {
-    font-size: 2.625rem;
+    font-size: 2.6rem;
+    font-weight: 700;
 }
 
 .reviews__cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 6rem;
-    width: 80%;
+    gap: 2rem; /* Reducimos el gap de 6rem a 2rem para que no estén tan lejos */
+    width: 100%;
 }
 
+/* TARJETA DE REVIEW (NUEVO ESTILO) */
 .review {
-    width: 440px;
-    height: 230px;
+    width: 380px; /* Un poco más angosto para verse más compacto */
+    min-height: 200px; /* Altura mínima flexible */
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 1.5rem;
-    background-color: var(--color-primary);
-    border-radius: 5px;
+    gap: 1.5rem;
+    padding: 2rem;
+
+    /* El cambio clave: Fondo oscuro con degradado sutil en vez de morado sólido */
+    background: linear-gradient(145deg, #1e1e2f 0%, #101218 100%);
+
+    border: 1px solid #2d2d3a; /* Borde muy sutil para definir la caja */
+    border-radius: 16px; /* Bordes más redondeados y modernos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto Hover: Al pasar el mouse, la tarjeta "flota" y brilla un poco */
+.review:hover {
+    transform: translateY(-5px); /* Se mueve hacia arriba */
+    box-shadow: 0 10px 20px rgba(95, 76, 232, 0.15); /* Sombra morada muy suave */
+    border-color: var(--color-primary); /* El borde se pinta del color de la marca */
 }
 
 .review__author {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .review__icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
+    /* Filtro para que el icono sea blanco o gris claro si es SVG negro */
+    filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(200deg) brightness(100%) contrast(100%);
+    opacity: 0.8;
 }
 
 .review__name {
     font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-white);
 }
 
 .review__comment {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6; /* Mejor interlineado para leer */
+    color: #c9c9d4; /* Color grisáceo para el texto del comentario */
 }
 /* =========================================================
    team section
@@ -1127,11 +1153,198 @@ html, body {
     gap: 16px;
 }
 
-@media (min-width: 768px) {
-    .footer__bottom {
-        flex-direction: row;
-        text-align: left;
-        gap: 0;
+/* =========================================================
+   ESTILOS MENU MOVIL (OVERLAY)
+========================================================= */
+
+/* Botón Hamburguesa (oculto en desktop) */
+.header__menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Contenedor oscuro que cubre toda la pantalla */
+.header__overlay-menu {
+    position: fixed;
+    inset: 0; /* top:0, right:0, bottom:0, left:0 */
+    background: rgba(0, 0, 0, 0.85); /* Fondo semitransparente oscuro */
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    justify-content: flex-end; /* Menú sale de la derecha */
+    z-index: 2000; /* Encima de todo */
+}
+
+/* Clase para mostrarlo (se agrega con JS) */
+.header__overlay-menu--active {
+    display: flex;
+}
+
+/* El panel lateral con los links */
+.header__overlay-content {
+    background-color: var(--color-bg); /* Tu color de fondo #101218 */
+    width: 75%; /* Ocupa el 75% del ancho en móvil */
+    max-width: 300px;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    border-left: 1px solid #333;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+/* Botón cerrar (X) */
+.header__close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.header__close-btn:hover {
+    color: var(--color-primary);
+}
+
+/* Links del menú móvil */
+.header__overlay-link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.header__overlay-link:hover {
+    color: var(--color-accent);
+    padding-left: 10px; /* Pequeña animación al hacer hover */
+}
+
+@media (max-width: 1024px) {
+    .presentation__container {
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .presentation__image img {
+        width: 100%; /* Evita que la imagen se salga */
+        height: auto;
+    }
+
+    /* Ajuste sección Learning */
+    .section .section-text {
+        width: 90%;
+    }
+
+    .section .frame {
+        width: 90%;
+        gap: 30px;
+    }
+}
+
+/* Móviles (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .header__interaction {
+        display: none;
+    }
+
+    /* Mostramos el botón hamburguesa */
+    .header__menu-btn {
+        display: block;
+    }
+
+    /* Ajuste del header para que el botón quede a la derecha */
+    .header {
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+
+    .header__logo {
+        margin-left: 0; /* Quitamos el margen grande */
+    }
+
+    /* HEADER */
+    .header__nav, .header__actions {
+        display: none; /* Ocultamos menú desktop */
+    }
+
+    .header__menu-btn {
+        display: block; /* Mostramos hamburguesa */
+        font-size: 1.5rem;
+        color: white;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* HERO / PRESENTATION */
+    .presentation__title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .presentation__description {
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .presentation__buttons {
+        justify-content: center;
+    }
+
+    /* BENEFITS */
+    .benefits {
+        margin: 40px 20px;
+    }
+
+    /* LEARNING SECTION (Importante: quitar anchos fijos) */
+    .section .frame {
+        flex-direction: column; /* Apilar elementos */
+        align-items: center;
+    }
+
+    .section .secondary-headline {
+        font-size: 28px;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    /* REVIEWS */
+    .reviews__cards {
+        gap: 1.5rem;
+    }
+
+    .review {
+        width: 100%; /* En celular ocupa todo el ancho */
+        max-width: 400px;
+    }
+
+    .reviews__title {
+        font-size: 2rem;
+    }
+
+    /* PRICING */
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* CTA */
+    .cta__title {
+        font-size: 2rem;
     }
 }
 
