@@ -11,40 +11,49 @@
 <body>
     <header class="header">
         <section class="header__logo">
-            <img src="assets/icons/logo.png" alt="">
-            <div class="header__title">
-                <h2 class="header__title-main">Decode</h2>
-                <p class="header__title-sub">SmartSolutions</p>
-            </div>
+            <a href="index.html" style="display: flex; gap: 10px; text-decoration: none; align-items: center;">
+                <img src="assets/icons/logo.png" alt="" srcset="">
+                <div class="header__title">
+                    <h2 class="header__title-main">Decode</h2>
+                    <p class="header__title-sub">SmartSolutions</p>
+                </div>
+            </a>
         </section>
 
-        <!-- Botón menú hamburguesa (solo móvil) -->
         <button class="header__menu-btn" id="menu-toggle">
             <i class="fas fa-bars"></i>
         </button>
 
-        <!-- Nav normal (desktop) -->
-        <nav class="header__nav">
-            <a href="index.html" class="header__nav-link">Inicio</a>
-            <a href="comunidad.html" class="header__nav-link">Comunidad</a>
-            <a href="#" class="header__nav-link">Sobre nosotros</a>
-            <a href="#" class="header__nav-link">Suscripciones</a>
-        </nav>
+        <section class="header__interaction">
+            <nav class="header__nav">
+                <a href="index.html" class="header__nav-link">Inicio</a>
+                <a href="comunidad.html" class="header__nav-link">Comunidad</a>
+                <a href="#" class="header__nav-link">Sobre nosotros</a>
+                <a href="#" class="header__nav-link">Suscripciones</a>
+            </nav>
 
-        <!-- Overlay menú (móvil) -->
+            <div class="header__actions">
+                <input type="button" value="Registrarse" class="btn btn--secondary header__btn-register" onclick="window.location.href='register.html'">
+            </div>
+        </section>
+
         <div class="header__overlay-menu" id="header-overlay">
             <div class="header__overlay-content">
                 <button class="header__close-btn" id="menu-close">
                     <i class="fas fa-times"></i>
                 </button>
+
                 <a href="index.html" class="header__overlay-link">Inicio</a>
                 <a href="comunidad.html" class="header__overlay-link">Comunidad</a>
                 <a href="#" class="header__overlay-link">Sobre nosotros</a>
                 <a href="#" class="header__overlay-link">Suscripciones</a>
+
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                    <button class="btn btn--secondary" onclick="window.location.href='register.html'">Empieza gratis</button>
+                </div>
             </div>
         </div>
     </header>
-
     <section class="sesion">
         <div class="login">
             <div class="login__info">
@@ -79,8 +88,8 @@
     </section>
 
     <script>
-        // Toggle menú hamburguesa
         document.addEventListener("DOMContentLoaded", () => {
+            // Lógica del Menú Hamburguesa
             const menuToggle = document.getElementById("menu-toggle");
             const menuClose = document.getElementById("menu-close");
             const overlay = document.getElementById("header-overlay");
@@ -97,7 +106,6 @@
                 });
             }
 
-            // Cerrar overlay al hacer click fuera del contenido
             if (overlay) {
                 overlay.addEventListener("click", (e) => {
                     if (e.target === overlay) {
@@ -106,26 +114,27 @@
                 });
             }
 
-            // LÓGICA LOGIN (igual que tu versión)
+            // Lógica del Login (tu código existente)
             const form = document.querySelector(".login-form");
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
+            if(form){
+                form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById("li__email").value;
+                    const pass = document.getElementById("li__contraseña").value;
+                    const msgCuenta = document.getElementById("cuenta__equivocada");
 
-                const email = document.getElementById("li__email").value;
-                const pass = document.getElementById("li__contraseña").value;
-                const msgCuenta = document.getElementById("cuenta__equivocada");
+                    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+                    const encontrado = usuarios.find(u => u.email === email && u.contraseña === pass);
 
-                const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-                const encontrado = usuarios.find(u => u.email === email && u.contraseña === pass);
-
-                if (encontrado) {
-                    localStorage.setItem("usuarioActual", JSON.stringify(encontrado));
-                    msgCuenta.style.display = "none";
-                    window.location.href = "home.html";
-                } else {
-                    msgCuenta.style.display = "block";
-                }
-            });
+                    if (encontrado) {
+                        localStorage.setItem("usuarioActual", JSON.stringify(encontrado));
+                        msgCuenta.style.display = "none";
+                        window.location.href = "home.html";
+                    } else {
+                        msgCuenta.style.display = "block";
+                    }
+                });
+            }
         });
     </script>
 </body>

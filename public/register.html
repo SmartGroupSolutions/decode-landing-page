@@ -11,33 +11,46 @@
 <body>
     <header class="header">
         <section class="header__logo">
-            <img src="assets/icons/logo.png" alt="">
-            <div class="header__title">
-                <h2 class="header__title-main">Decode</h2>
-                <p class="header__title-sub">SmartSolutions</p>
-            </div>
+            <a href="index.html" style="display: flex; gap: 10px; text-decoration: none; align-items: center;">
+                <img src="assets/icons/logo.png" alt="" srcset="">
+                <div class="header__title">
+                    <h2 class="header__title-main">Decode</h2>
+                    <p class="header__title-sub">SmartSolutions</p>
+                </div>
+            </a>
         </section>
 
         <button class="header__menu-btn" id="menu-toggle">
             <i class="fas fa-bars"></i>
         </button>
 
-        <nav class="header__nav">
-            <a href="index.html" class="header__nav-link">Inicio</a>
-            <a href="comunidad.html" class="header__nav-link">Comunidad</a>
-            <a href="#" class="header__nav-link">Sobre nosotros</a>
-            <a href="#" class="header__nav-link">Suscripciones</a>
-        </nav>
+        <section class="header__interaction">
+            <nav class="header__nav">
+                <a href="index.html" class="header__nav-link">Inicio</a>
+                <a href="comunidad.html" class="header__nav-link">Comunidad</a>
+                <a href="#" class="header__nav-link">Sobre nosotros</a>
+                <a href="#" class="header__nav-link">Suscripciones</a>
+            </nav>
+
+            <div class="header__actions">
+                <input type="button" value="Registrarse" class="btn btn--secondary header__btn-register" onclick="window.location.href='register.html'">
+            </div>
+        </section>
 
         <div class="header__overlay-menu" id="header-overlay">
             <div class="header__overlay-content">
                 <button class="header__close-btn" id="menu-close">
                     <i class="fas fa-times"></i>
                 </button>
+
                 <a href="index.html" class="header__overlay-link">Inicio</a>
                 <a href="comunidad.html" class="header__overlay-link">Comunidad</a>
                 <a href="#" class="header__overlay-link">Sobre nosotros</a>
                 <a href="#" class="header__overlay-link">Suscripciones</a>
+
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                    <button class="btn btn--secondary" onclick="window.location.href='register.html'">Empieza gratis</button>
+                </div>
             </div>
         </div>
     </header>
@@ -87,7 +100,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Toggle menú
+            // Lógica del Menú Hamburguesa
             const menuToggle = document.getElementById("menu-toggle");
             const menuClose = document.getElementById("menu-close");
             const overlay = document.getElementById("header-overlay");
@@ -112,39 +125,27 @@
                 });
             }
 
-            // LÓGICA REGISTER (igual que tu versión)
-            const form = document.querySelector(".register-form");
 
-            form.addEventListener("submit", function(e) {
-                e.preventDefault(); 
+            const form = document.querySelector(".login-form");
+            if(form){
+                form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById("li__email").value;
+                    const pass = document.getElementById("li__contraseña").value;
+                    const msgCuenta = document.getElementById("cuenta__equivocada");
 
-                const nombre = document.getElementById("ri__nombre").value;
-                const apellido = document.getElementById("ri__apellido").value;
-                const email = document.getElementById("ri__email").value;
-                const contraseña = document.getElementById("ri__contraseña").value;
-                const msgEmailTomado = document.getElementById("email__tomado");
+                    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+                    const encontrado = usuarios.find(u => u.email === email && u.contraseña === pass);
 
-                const usuario = {
-                    nombre: nombre,
-                    apellido: apellido,
-                    email: email,
-                    contraseña: contraseña
-                };
-
-                const usuariosGuardados = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-                const yaExiste = usuariosGuardados.some(u => u.email === email);
-                if (yaExiste) {
-                    msgEmailTomado.style.display = "block";
-                    return;
-                }
-                msgEmailTomado.style.display = "none";
-                usuariosGuardados.push(usuario);
-                localStorage.setItem("usuarios", JSON.stringify(usuariosGuardados));
-
-                form.reset();
-                window.location.href = "login.html";
-            });
+                    if (encontrado) {
+                        localStorage.setItem("usuarioActual", JSON.stringify(encontrado));
+                        msgCuenta.style.display = "none";
+                        window.location.href = "home.html";
+                    } else {
+                        msgCuenta.style.display = "block";
+                    }
+                });
+            }
         });
     </script>
 </body>

@@ -42,13 +42,16 @@
         </div>
     </section>
 
+    <button class="header__menu-btn" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <section class="header__interaction">
         <nav class="header__nav">
             <a href="index.html" class="header__nav-link">Inicio</a>
             <a href="comunidad.html" class="header__nav-link">Comunidad</a>
             <a href="#" class="header__nav-link">Sobre nosotros</a>
             <a href="#" class="header__nav-link">Suscripciones</a>
-  
         </nav>
 
         <div class="header__actions">
@@ -56,6 +59,22 @@
             <input type="button" value="Empieza gratis" class="btn btn--secondary header__btn-register" onclick="window.location.href='register.html'">
         </div>
     </section>
+
+    <div class="header__overlay-menu" id="header-overlay">
+        <div class="header__overlay-content">
+            <button class="header__close-btn" id="menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="index.html" class="header__overlay-link">Inicio</a>
+            <a href="comunidad.html" class="header__overlay-link">Comunidad</a>
+            <a href="#" class="header__overlay-link">Sobre nosotros</a>
+            <a href="#" class="header__overlay-link">Suscripciones</a>
+            <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                <input type="button" value="Iniciar Sesión" class="btn btn--primary" onclick="window.location.href='login.html'" style="width: 100%;">
+                <input type="button" value="Empieza gratis" class="btn btn--secondary" onclick="window.location.href='register.html'" style="width: 100%;">
+            </div>
+        </div>
+    </div>
 </header>
 
 <!-- HERO / PRESENTATION -->
@@ -120,51 +139,51 @@
 <!-- LEARNING -->
 
 <section class = "learning">
-        <div class="section">
-      <div class="section-text">
-        <div class="top">
-          <p class="caption">APRENDER A PROGRAMAR SIN FRUSTRACIÓN</p>
-          <p class="secondary-headline">Tu Guía de IA Personalizada</p>
-        </div>
-      </div>
-      <div class="frame">
-        <div class="div">
-          <img class="image" src="assets/icons/brain.svg"/>
-          <p class="paragraph">
-            Escribe código directamente en la aplicación y obtén ayuda instantánea, explicaciones claras y ejemplos
-            ejecutados. Nuestra IA reduce la frustración al ofrecer pistas sin darte la solución completa.
-          </p>
-        </div>
-        <div class="div">
-          <img class="image" src="assets/icons/cog.svg" />
-          <p class="paragraph">
-            Selecciona tu nivel de experiencia para acceder a un camino de estudio diseñado específicamente para ti,
-            garantizando que la teoría y la práctica se ajusten a tus conocimientos iniciales y necesidades.
-          </p>
-        </div>
-      </div>
-      <div class="frame">
-        <div class="div">
-          <img class="image" src="assets/icons/lightbulb.svg" />
-          <p class="paragraph">
-            Supera la brecha entre la teoría y la habilidad práctica (un problema clave identificado) con ejercicios
-            continuos y un entorno de aprendizaje activo que fortalece tu desarrollo profesional.
-          </p>
-        </div>
-        <div class="div">
-          <img class="image" src="assets/icons/trophy.svg"/>
-          <p class="paragraph">
-            El sistema incluye una galería de Logros y Recompensas para celebrar cada hito y mostrar una barra de
-            progreso que te permite retomar tu aprendizaje rápidamente y visualizar tu avance.
-          </p>
-        </div>
-      </div>
-      <button class="button">
-        <div class="text-container">
-            <div class="button-text">Descargar ahora
+    <div class="section">
+        <div class="section-text">
+            <div class="top">
+                <p class="caption">APRENDER A PROGRAMAR SIN FRUSTRACIÓN</p>
+                <p class="secondary-headline">Tu Guía de IA Personalizada</p>
             </div>
         </div>
-      </button>
+        <div class="frame">
+            <div class="div">
+                <img class="image" src="assets/icons/brain.svg"/>
+                <p class="paragraph">
+                    Escribe código directamente en la aplicación y obtén ayuda instantánea, explicaciones claras y ejemplos
+                    ejecutados. Nuestra IA reduce la frustración al ofrecer pistas sin darte la solución completa.
+                </p>
+            </div>
+            <div class="div">
+                <img class="image" src="assets/icons/cog.svg" />
+                <p class="paragraph">
+                    Selecciona tu nivel de experiencia para acceder a un camino de estudio diseñado específicamente para ti,
+                    garantizando que la teoría y la práctica se ajusten a tus conocimientos iniciales y necesidades.
+                </p>
+            </div>
+        </div>
+        <div class="frame">
+            <div class="div">
+                <img class="image" src="assets/icons/lightbulb.svg" />
+                <p class="paragraph">
+                    Supera la brecha entre la teoría y la habilidad práctica (un problema clave identificado) con ejercicios
+                    continuos y un entorno de aprendizaje activo que fortalece tu desarrollo profesional.
+                </p>
+            </div>
+            <div class="div">
+                <img class="image" src="assets/icons/trophy.svg"/>
+                <p class="paragraph">
+                    El sistema incluye una galería de Logros y Recompensas para celebrar cada hito y mostrar una barra de
+                    progreso que te permite retomar tu aprendizaje rápidamente y visualizar tu avance.
+                </p>
+            </div>
+        </div>
+        <button class="button">
+            <div class="text-container">
+                <div class="button-text">Descargar ahora
+                </div>
+            </div>
+        </button>
     </div>
 </section>
 
@@ -506,11 +525,39 @@
         <!-- Parte inferior -->
         <div class="footer__bottom">
             <p class="footer__copyright">SmartSolutions © 2025. All rights reserved.</p>
-            
+
         </div>
 
     </div>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuClose = document.getElementById("menu-close");
+        const overlay = document.getElementById("header-overlay");
+
+        if (menuToggle && overlay) {
+            menuToggle.addEventListener("click", () => {
+                overlay.classList.add("header__overlay-menu--active");
+            });
+        }
+
+        if (menuClose && overlay) {
+            menuClose.addEventListener("click", () => {
+                overlay.classList.remove("header__overlay-menu--active");
+            });
+        }
+
+        // Cerrar al dar click fuera
+        if (overlay) {
+            overlay.addEventListener("click", (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove("header__overlay-menu--active");
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
-
