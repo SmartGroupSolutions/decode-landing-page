@@ -1,20 +1,16 @@
 @charset "UTF-8";
-/* Se redefinen las variables para la paleta de colores claros */
-:root {
-      --color-dark-panel: #FFFFFF; /* White for main panels */
-      --color-dark-header: #F3F4F6; /* Light gray for headers/controls */
-      --color-chat-bg: #F8F9FA; /* Very light background for chat area */
-      --color-text-faded: #6B7280; /* Dark gray for secondary text */
-      --color-text-darker: #4B5563; /* Darker gray for general text */
-      --color-border: #E5E7EB; /* Light border lines */
-      --color-black: #1F2937; /* New variable for general dark text */
 
-      /* Syntax Colors (Adjusted for light background) */
+:root {
+      --color-dark-panel: #FFFFFF;
+      --color-dark-header: #F3F4F6;
+      --color-chat-bg: #F8F9FA;
+      --color-text-faded: #6B7280;
+      --color-text-darker: #4B5563;
+      --color-border: #E5E7EB;
+      --color-black: #1F2937;
       --color-syntax-keyword: #007ACC; 
       --color-syntax-type: #800080; 
-      --color-syntax-string: #A31515; 
-      
-      /* Accent Colors (Se mantienen) */
+      --color-syntax-string: #A31515;
       --color-primary: #5F4CE8; 
       --color-accent: #2EB884; 
       --color-white: #FFFFFF;
@@ -41,7 +37,6 @@
 .syntax--string { color: var(--color-syntax-string); }
 
 .code-inline {
-      /* Se cambia el fondo oscuro a uno claro */
       background-color: #E5E7EB;
       color: var(--color-black);
       padding: 2px 4px;
@@ -54,12 +49,11 @@
 /* =========================================================
       HEADER
 ========================================================= */
-/* El header está definido como blanco, se mantiene */
 .main-header {
       height: 60px;
       width: 100%;
       background-color: white;
-      border-bottom: 1px solid var(--color-border); /* Usar variable de borde claro */
+      border-bottom: 1px solid var(--color-border);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -69,14 +63,12 @@
       z-index: 1000;
 }
 
-/** ESTILOS AÑADIDOS PARA EL BOTÓN DE MENÚ (fas fa-bars) **/
 .main-header__menu-btn {
     background: none;
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
-    /* Usar el color de texto principal de Decode (oscuro) */
-    color: var(--color-black); 
+    color: var(--color-black);
     /* Eliminar cualquier relleno por defecto */
     padding: 0; 
 }
@@ -106,7 +98,7 @@
       width: 200px;
       flex-direction: column;
     /** CAMBIO SOLICITADO: Añadir gap entre elementos **/
-    gap: 10px; 
+    gap: 10px;
 }
 
 
@@ -178,7 +170,7 @@
 
 .chat-message__text {
       /* CAMBIO: Fondo claro para la burbuja del tutor */
-      background-color: var(--color-dark-header); 
+      background-color: var(--color-dark-header);
       /* CAMBIO: Texto oscuro */
       color: var(--color-black); 
       padding: 10px;
@@ -262,17 +254,13 @@
       background-color: var(--color-dark-header);
 }
 
-/* --------------------------------------------------------- */
-/* ¡CORRECCIÓN DE POSICIONAMIENTO! */
-/* Se añade el posicionamiento relativo al grupo de control */
+
 .editor__control-group {
       position: relative; 
       display: inline-block; /* Crucial para envolver solo el botón */
 }
-/* --------------------------------------------------------- */
 
 .editor__btn {
-      /* CAMBIO: Botones con fondo blanco y borde oscuro */
       background: var(--color-white);
       border: 1px solid var(--color-border);
       color: var(--color-black);
@@ -285,13 +273,11 @@
 }
 
 .editor__btn:active {
-      /* CAMBIO: Estado activo claro */
       background-color: var(--color-border); 
       border-color: var(--color-primary);
       transform: translateY(1px); 
 }
 
-/* Base style for hover menus (Load and Save) */
 .editor__load-menu, .editor__save-menu {
       position: absolute;
       top: 35px; /* Ajuste: para que aparezca justo debajo del botón (35px de alto) */
@@ -382,7 +368,7 @@
       border: none;
       outline: none;
       /* CAMBIO: Editor con fondo blanco */
-      background-color: var(--color-white); 
+      background-color: var(--color-white);
       /* CAMBIO: Texto oscuro */
       color: var(--color-black); 
       font-family: 'Monaco', monospace;
@@ -442,7 +428,7 @@
       3. INFO COLUMN
 ========================================================= */
 .info-column {
-      flex: 0 0 300px; 
+      flex: 0 0 300px;
       /* CAMBIO: Fondo blanco */
       background-color: var(--color-white); 
       border-left: 1px solid var(--color-border);

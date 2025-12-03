@@ -130,7 +130,7 @@ body {
     display: none;
 }
 .problem-card {
-    background-color: var(--card-bg);
+    background-color: var(--color-white);
     border: 1px solid var(--card-border);
     border-radius: 6px;
     padding: 20px;
@@ -170,7 +170,7 @@ body {
 }
 .page-btn.active {
     background-color: var(--active-btn);
-    color: white;
+    color: black;
     font-weight: bold;
 }
 .bottom-nav {
