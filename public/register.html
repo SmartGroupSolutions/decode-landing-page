@@ -100,7 +100,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Lógica del Menú Hamburguesa
+            // --- 1. Lógica del Menú Hamburguesa (Igual que en los otros) ---
             const menuToggle = document.getElementById("menu-toggle");
             const menuClose = document.getElementById("menu-close");
             const overlay = document.getElementById("header-overlay");
@@ -125,25 +125,50 @@
                 });
             }
 
+            // --- 2. Lógica de REGISTRO (Esta es la parte corregida) ---
+            // Buscamos el formulario con la clase .register-form
+            const form = document.querySelector(".register-form");
 
-            const form = document.querySelector(".login-form");
-            if(form){
+            if (form) {
                 form.addEventListener("submit", function(e) {
-                    e.preventDefault();
-                    const email = document.getElementById("li__email").value;
-                    const pass = document.getElementById("li__contraseña").value;
-                    const msgCuenta = document.getElementById("cuenta__equivocada");
+                    e.preventDefault(); // Evita que la página se recargue
 
-                    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-                    const encontrado = usuarios.find(u => u.email === email && u.contraseña === pass);
+                    // Obtenemos los valores de los inputs con ID "ri__..."
+                    const nombre = document.getElementById("ri__nombre").value;
+                    const apellido = document.getElementById("ri__apellido").value;
+                    const email = document.getElementById("ri__email").value;
+                    const contraseña = document.getElementById("ri__contraseña").value;
+                    const msgEmailTomado = document.getElementById("email__tomado");
 
-                    if (encontrado) {
-                        localStorage.setItem("usuarioActual", JSON.stringify(encontrado));
-                        msgCuenta.style.display = "none";
-                        window.location.href = "home.html";
-                    } else {
-                        msgCuenta.style.display = "block";
+                    // Creamos el objeto usuario
+                    const nuevoUsuario = {
+                        nombre: nombre,
+                        apellido: apellido,
+                        email: email,
+                        contraseña: contraseña
+                    };
+
+                    // Traemos los usuarios que ya existen (o un array vacío si es el primero)
+                    const usuariosGuardados = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+                    // Verificamos si el email ya existe
+                    const yaExiste = usuariosGuardados.some(u => u.email === email);
+
+                    if (yaExiste) {
+                        // Si existe, mostramos el mensaje de error
+                        msgEmailTomado.style.display = "block";
+                        return; // Detenemos la ejecución
                     }
+
+                    // Si no existe, guardamos el nuevo usuario
+                    msgEmailTomado.style.display = "none";
+                    usuariosGuardados.push(nuevoUsuario);
+                    localStorage.setItem("usuarios", JSON.stringify(usuariosGuardados));
+
+                    // Limpiamos el formulario y mandamos al usuario al Login
+                    form.reset();
+                    alert("¡Cuenta creada con éxito! Ahora inicia sesión.");
+                    window.location.href = "login.html";
                 });
             }
         });
