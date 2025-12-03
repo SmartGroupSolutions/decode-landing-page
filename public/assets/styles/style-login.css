@@ -1,10 +1,8 @@
-/* =============================
-   LAYOUT GENERAL LOGIN
-============================= */
+
 .sesion {
     display: flex;
     width: 100%;
-    min-height: calc(100vh - 70px); /* espacio para el header */
+    min-height: calc(100vh - 70px);
     justify-content: center;
     align-items: center;
     padding: 4rem 1rem 2rem;
@@ -220,9 +218,6 @@
     color: var(--color-accent);
 }
 
-/* =============================
-   BREAKPOINTS
-============================= */
 @media (max-width: 768px) {
     .header__nav {
         display: none; /* ocultar nav normal */
@@ -301,12 +296,12 @@ body {
     outline: 1px solid #d1d5db;
 }
 
-/* Botón principal (mantiene el verde de accent) */
+/* Botón principal*/
 .login__enter button {
     color: #ffffff;
 }
 
 /* Textos y links */
 .login__enter a {
-    color: #2563eb; /* azul más limpio en fondo blanco */
+    color: #2563eb;
 }

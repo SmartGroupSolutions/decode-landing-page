@@ -72,7 +72,11 @@ body {
     max-width: 800px;
     margin: 0 auto;
 }
-
+.back-btn {
+    color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
+    display: flex; align-items: center; gap: 8px; transition: 0.2s; font-weight: 500;
+}
+.back-btn:hover { color: var(--primary); }
 
 .search-section {
     margin-bottom: 25px;

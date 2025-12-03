@@ -3,84 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafío Final - Decode</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Decode – Examen Final</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="assets/styles/style-challenge.css">
     <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/styles/style-final-challenge.css">
 </head>
 <body>
-
 <header class="main-header">
-    <div class="avatar">
-        <img src="assets/images/Laufey-avatar.jpg" class="avatar-img" alt="avatar">
+    <div class="main-header__avatar">
+        <img class="header__profile-icon" src="assets/images/Laufey-avatar.jpg" alt="">
     </div>
-    <a href="index.html" class="header-logo">DECODE</a>
-    <button class="menu-btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
-
+    <a href="home.html" class="main-header__logo">Decode</a>
+    <button class="main-header__menu-btn" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
     <div class="dropdown-menu" id="dropdown-menu">
-        <a href="#" class="menu-item"><i class="fas fa-home"></i> Inicio</a>
-        <a href="#" class="menu-item"><i class="fas fa-bolt"></i> Rutas</a>
-        <a href="#" class="menu-item"><i class="fas fa-users"></i> Comunidad</a>
-        <a href="#" class="menu-item"><i class="fas fa-user"></i> Perfil</a>
+        <a href="home.html" class="dropdown-menu__item"><i class="fas fa-home"></i>Inicio</a>
+        <a href="onboarding.html" class="dropdown-menu__item"><i class="fas fa-bolt"></i>Rutas</a>
+        <a href="comunidad.html" class="dropdown-menu__item"><i class="fas fa-users"></i>Comunidad</a>
+        <a href="profile.html" class="dropdown-menu__item"><i class="fas fa-user"></i>Perfil</a>
     </div>
 </header>
 
-<main class="main-container">
-    <div class="content-wrapper">
-        <h2 class="section-title">Desafío final</h2>
-
-        <div class="tabs-header">
-            <button class="tab-btn active" data-target="terminal-view">Terminal</button>
-            <button class="tab-btn" data-target="info-view">Sobre el ejercicio</button>
-        </div>
-
-        <div id="terminal-view" class="tab-content active">
-            <div class="code-wrapper">
-                <textarea class="code-editor" spellcheck="false">// Crea un programa en C++ que permita
-// practicar condicionales.
-// Utiliza if y else para verificar si un número
-// ingresado por el usuario es positivo, negativo o cero.
-// Usa Decode para recibir ayuda.
-
-> |</textarea>
-            </div>
-
-            <div class="action-buttons">
-                <button id="btn-enviar" class="btn btn-primary">Enviar</button>
-                <button id="btn-compilar" class="btn btn-secondary">Compilar</button>
+<main class="main-layout active-chat-view" id="main-layout">
+    <section class="chat-column" data-view="chat">
+        <div class="chat-column__content">
+            <div class="chat-message chat-message--tutor">
+                <p class="chat-message__time">12:34 PM</p>
+                <p class="chat-message__text">
+                    <strong style="color: var(--color-accent);">¡Hola!</strong> Estás en el
+                    <strong>Examen Final: Función de Máximo</strong>. Debes corregir un error lógico que impide que la función encuentre el número más grande correctamente.
+                    <br><br>
+                    Escribe <code class="code-inline">ayuda</code> en el chat si necesitas una pista (se te restarán **-25 XP** por usarla).
+                </p>
             </div>
         </div>
 
-        <div id="info-view" class="tab-content hidden">
-            <div class="info-card">
-                <h3 class="card-title">Desafío final 🚀</h3>
-                <p>Cree un programa que le pida al usuario un número y determine si es positivo, negativo o cero. Debe utilizar estructuras de control como if y else.</p>
-            </div>
-            <div class="info-card">
-                <h3 class="card-title">Dificultad ⭐</h3>
-                <p>La dificultad va a ser alta para que puedas medirte en este desafío final y puedas ver tu progreso hasta el momento.</p>
+        <div class="chat-column__input">
+            <input type="text" placeholder="Escribe tu duda o escribe 'ayuda' para una pista...">
+            <button class="btn--send">➤</button>
+        </div>
+    </section>
+
+    <section class="editor-column" data-view="editor">
+        <div class="editor__header">
+            <h2>Examen Final: Encuentra el Máximo (Python)</h2>
+            <p>Corrige la inicialización de la variable para que la función devuelva el número mayor de la lista. Luego presiona "Verificar reto".</p>
+        </div>
+
+        <div class="editor__file-tabs">
+            <span class="editor__file-tab editor__file-tab--active">max_bug.py</span>
+        </div>
+
+        <div class="editor__controls">
+            <button class="editor__btn btn--compile">Verificar reto</button>
+
+            <button class="editor__btn" id="btn-copy">Copiar</button>
+
+            <button class="editor__btn" id="btn-reset">Reset</button>
+        </div>
+
+        <div class="editor__code-area">
+            <textarea id="main-code-editor" class="editor__textarea"></textarea>
+        </div>
+
+        <div class="editor__terminal-header">
+            <button class="editor__terminal-btn editor__terminal-btn--active">Salida</button>
+        </div>
+
+        <div class="editor__terminal-area">
+                <pre class="terminal__output">
+<span style="color: #4B5563;">Ejecutando max_lista([3, 8, 2])...</span>
+<span style="color: #F8B342;">Resultado esperado: 8</span>
+<span style="color: #F8B342;">Resultado obtenido: 8 (Pasa con positivos, ¡pero falla con números negativos!)</span>
+<span style="color: #F8B342;">Revisa el valor de inicialización. ¿Qué pasaría si la lista fuera [-5, -1, -3]?</span>
+                </pre>
+        </div>
+
+        <div class="editor__footer" style="display: flex; align-items: center; justify-content: flex-start;">
+            <span class="editor__footer-item" style="margin-right: 20px;">Lenguaje: Python</span>
+            <span class="editor__footer-item editor__footer-item--status"></span>
+        </div>
+    </section>
+
+    <section class="info-column" data-view="info">
+        <div class="info-column__content">
+            <div class="theory-section">
+                <h3 class="theory__title">Examen Final: Búsqueda del Máximo</h3>
+                <p class="theory__subtitle">Corrige un error de inicialización en la función <code class="code-inline">max_lista</code>.</p>
+
+                <div class="theory__card">
+                    <h4 class="theory__card-title">Descripción del problema (Dificultad Media)</h4>
+                    <p class="theory__card-text">
+                        La función <code class="code-inline">max_lista</code> busca el elemento más grande en una lista. Actualmente, funciona con números positivos, pero **falla** si la lista contiene números negativos o si está vacía.
+                    </p>
+                    <p class="theory__card-text">
+                        El error se encuentra en el valor inicial asignado a la variable <code class="code-inline">mayor</code>. Si la lista contiene solo números negativos (ej: <code class="code-inline">[-5, -1, -3]</code>), el resultado será incorrecto porque el valor inicial es <code class="code-inline">0</code>.
+                    </p>
+                    <p class="theory__card-text">
+                        <strong>Tu misión:</strong>
+                    <ul style="padding-left: 18px; margin-top: 8px;">
+                        <li>Modificar la inicialización de <code class="code-inline">mayor</code>.</li>
+                        <li>La solución más robusta es iniciar <code class="code-inline">mayor</code> con el **primer elemento** de la lista.</li>
+                        <li>No modifiques la lógica del bucle <code class="code-inline">for</code> ni la estructura de la función.</li>
+                    </ul>
+                    </p>
+                    <p class="theory__card-text">
+                        Al verificar el reto correctamente, ganarás **+1000 XP**.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 <nav class="bottom-nav">
-    <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
-    <a href="#" class="nav-item active"><i class="fas fa-bolt"></i><span>Rutas</span></a>
-    <a href="#" class="nav-item"><i class="fas fa-users"></i><span>Comunidad</span></a>
-    <a href="#" class="nav-item"><i class="fas fa-user"></i><span>Perfil</span></a>
+    <button class="nav-item active" data-view="chat">
+        <i class="fas fa-comments"></i>
+        <span>Chat</span>
+    </button>
+    <button class="nav-item" data-view="editor">
+        <i class="fas fa-code"></i>
+        <span>Editor</span>
+    </button>
+    <button class="nav-item" data-view="info">
+        <i class="fas fa-flag-checkered"></i>
+        <span>Reto</span>
+    </button>
 </nav>
-<div class="modal-overlay" id="modal-success">
-    <div class="modal-content">
-        <h3 class="modal-title">Envío exitoso</h3>
-        <p class="modal-text">Logro Desbloqueado!!!!</p>
-        <button class="btn btn-primary modal-btn" id="close-success">Siguiente</button>
-    </div>
-</div>
-<div class="modal-overlay" id="modal-error">
-    <div class="modal-content">
-        <h3 class="modal-title">Compilación incorrecta</h3>
-        <p class="modal-text">El ejercicio no cumple con lo requerido.</p>
-        <button class="btn btn-secondary modal-btn" id="close-error">Volver</button>
+
+<div class="xp-modal" id="xp-modal">
+    <div class="xp-modal__content">
+        <div class="xp-modal__icon">
+            <i class="fas fa-trophy"></i>
+        </div>
+        <h2>¡Examen Final Completado!</h2>
+        <p>Has ganado <strong>+1000 XP</strong> 🎉</p>
+        <button class="btn btn--primary" id="xp-modal-home">Volver al inicio</button>
     </div>
 </div>
 
