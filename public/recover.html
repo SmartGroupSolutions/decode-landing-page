@@ -9,19 +9,20 @@
     <script src="https://kit.fontawesome.com/350b7ab1bf.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-        <section class="header__logo">
-            <img src="assets/icons/logo.png" alt="">
-            <div class="header__title">
-                <h2 class="header__title-main">Decode</h2>
-                <p class="header__title-sub">SmartSolutions</p>
-            </div>
-        </section>
+<header class="header">
+    <section class="header__logo">
+        <img src="assets/icons/logo.png" alt="" srcset="">
+        <div class="header__title">
+            <h2 class="header__title-main">Decode</h2>
+            <p class="header__title-sub">SmartSolutions</p>
+        </div>
+    </section>
 
-        <button class="header__menu-btn" id="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+    <button class="header__menu-btn" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
 
+    <section class="header__interaction">
         <nav class="header__nav">
             <a href="index.html" class="header__nav-link">Inicio</a>
             <a href="comunidad.html" class="header__nav-link">Comunidad</a>
@@ -29,18 +30,28 @@
             <a href="#" class="header__nav-link">Suscripciones</a>
         </nav>
 
-        <div class="header__overlay-menu" id="header-overlay">
-            <div class="header__overlay-content">
-                <button class="header__close-btn" id="menu-close">
-                    <i class="fas fa-times"></i>
-                </button>
-                <a href="index.html" class="header__overlay-link">Inicio</a>
-                <a href="comunidad.html" class="header__overlay-link">Comunidad</a>
-                <a href="#" class="header__overlay-link">Sobre nosotros</a>
-                <a href="#" class="header__overlay-link">Suscripciones</a>
+        <div class="header__actions">
+            <input type="button" value="Iniciar Sesión" class="btn btn--primary header__btn-login" onclick="window.location.href='login.html'">
+            <input type="button" value="Empieza gratis" class="btn btn--secondary header__btn-register" onclick="window.location.href='register.html'">
+        </div>
+    </section>
+
+    <div class="header__overlay-menu" id="header-overlay">
+        <div class="header__overlay-content">
+            <button class="header__close-btn" id="menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="index.html" class="header__overlay-link">Inicio</a>
+            <a href="comunidad.html" class="header__overlay-link">Comunidad</a>
+            <a href="#" class="header__overlay-link">Sobre nosotros</a>
+            <a href="#" class="header__overlay-link">Suscripciones</a>
+            <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                <input type="button" value="Iniciar Sesión" class="btn btn--primary" onclick="window.location.href='login.html'" style="width: 100%;">
+                <input type="button" value="Empieza gratis" class="btn btn--secondary" onclick="window.location.href='register.html'" style="width: 100%;">
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <section class="sesion">
         <div class="recover">
@@ -118,156 +129,55 @@
         </div>
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // MENÚ RESPONSIVE
-            const menuToggle = document.getElementById("menu-toggle");
-            const menuClose = document.getElementById("menu-close");
-            const overlay = document.getElementById("header-overlay");
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Lógica del Menú Hamburguesa
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuClose = document.getElementById("menu-close");
+        const overlay = document.getElementById("header-overlay");
 
-            if (menuToggle && overlay) {
-                menuToggle.addEventListener("click", () => {
-                    overlay.classList.add("header__overlay-menu--active");
-                });
-            }
+        if (menuToggle && overlay) {
+            menuToggle.addEventListener("click", () => {
+                overlay.classList.add("header__overlay-menu--active");
+            });
+        }
 
-            if (menuClose && overlay) {
-                menuClose.addEventListener("click", () => {
+        if (menuClose && overlay) {
+            menuClose.addEventListener("click", () => {
+                overlay.classList.remove("header__overlay-menu--active");
+            });
+        }
+
+        if (overlay) {
+            overlay.addEventListener("click", (e) => {
+                if (e.target === overlay) {
                     overlay.classList.remove("header__overlay-menu--active");
-                });
-            }
-
-            if (overlay) {
-                overlay.addEventListener("click", (e) => {
-                    if (e.target === overlay) {
-                        overlay.classList.remove("header__overlay-menu--active");
-                    }
-                });
-            }
-
-            // USUARIO DE PRUEBA + LÓGICA RECOVER (igual que el tuyo)
-            function crearUsuarioDePrueba() {
-                const usuarios = JSON.parse(localStorage.getItem("usuarios"));
-                if (!usuarios || usuarios.length === 0) {
-                    const usuarioPrueba = [{
-                        email: "prueba@decode.com",
-                        contraseña: "oldpassword",
-                        nombre: "Usuario Prueba"
-                    }];
-                    localStorage.setItem("usuarios", JSON.stringify(usuarioPrueba));
-                    console.log("Se ha inicializado un usuario de prueba: prueba@decode.com");
                 }
-            }
-            crearUsuarioDePrueba(); 
-
-            const step1 = document.getElementById("step1");
-            const step2 = document.getElementById("step2");
-            const step3 = document.getElementById("step3");
-            const step4 = document.getElementById("step4");
-
-            const emailInput = document.getElementById("rec__email");
-            const emailError = document.getElementById("rec__email-error");
-
-            const codigoInput = document.getElementById("rec__codigo");
-            const codigoError = document.getElementById("rec__codigo-error");
-
-            const pass1Input = document.getElementById("rec__pass1");
-            const pass2Input = document.getElementById("rec__pass2");
-            const passError = document.getElementById("rec__pass-error");
-
-            const btnIngresarCorreo = document.getElementById("btn__ingresar-correo"); 
-            const btnVerificarCodigo = document.getElementById("btn__verificar-codigo");
-            const btnActualizarPass = document.getElementById("btn__actualizar-pass");
-
-            let emailRecuperacion = null;
-
-            btnIngresarCorreo.addEventListener("click", function() {
-                if (!emailInput.reportValidity()) return;
-
-                const email = emailInput.value.trim();
-                const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-                const existe = usuarios.some(u => u.email === email);
-                
-                if (!existe) {
-                    emailError.style.display = "block";
-                    return;
-                }
-
-                emailError.style.display = "none";
-                emailRecuperacion = email;
-                step1.style.display = "none";
-                step2.style.display = "block";
-                codigoInput.focus();
             });
-            
-            btnVerificarCodigo.addEventListener("click", () => {
-                if (!codigoInput.reportValidity()) return;
+        }
 
-                const codigo = codigoInput.value.trim();
 
-                if (codigo === "123") {
-                    codigoError.style.display = "none";
-                    step2.style.display = "none";
-                    step3.style.display = "block";
-                    pass1Input.focus();
+        const form = document.querySelector(".login-form");
+        if(form){
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const email = document.getElementById("li__email").value;
+                const pass = document.getElementById("li__contraseña").value;
+                const msgCuenta = document.getElementById("cuenta__equivocada");
+
+                const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+                const encontrado = usuarios.find(u => u.email === email && u.contraseña === pass);
+
+                if (encontrado) {
+                    localStorage.setItem("usuarioActual", JSON.stringify(encontrado));
+                    msgCuenta.style.display = "none";
+                    window.location.href = "home.html";
                 } else {
-                    codigoError.style.display = "block";
+                    msgCuenta.style.display = "block";
                 }
             });
-
-            btnActualizarPass.addEventListener("click", () => {
-                if (!pass1Input.reportValidity() || !pass2Input.reportValidity()) return;
-                
-                const pass1 = pass1Input.value;
-                const pass2 = pass2Input.value;
-
-                if (pass1 === "" || pass2 === "" || pass1 !== pass2) {
-                    passError.style.display = "block";
-                    return;
-                }
-
-                passError.style.display = "none";
-                const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-                const indice = usuarios.findIndex(u => u.email === emailRecuperacion);
-
-                if (indice !== -1) {
-                    usuarios[indice].contraseña = pass1;
-                    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-                }
-
-                step3.style.display = "none";
-                step4.style.display = "block";
-            });
-            
-            // Enter en campos
-            emailInput.addEventListener("keydown", function(e) {
-                if (e.key === "Enter") {
-                    e.preventDefault();
-                    btnIngresarCorreo.click();
-                }
-            });
-
-            codigoInput.addEventListener("keydown", function(e) {
-                if (e.key === "Enter") {
-                    e.preventDefault();
-                    btnVerificarCodigo.click();
-                }
-            });
-
-            pass1Input.addEventListener("keydown", function(e) {
-                if (e.key === "Enter") {
-                    e.preventDefault();
-                    pass2Input.focus();
-                }
-            });
-            
-            pass2Input.addEventListener("keydown", function(e) {
-                if (e.key === "Enter") {
-                    e.preventDefault();
-                    btnActualizarPass.click();
-                }
-            });
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>

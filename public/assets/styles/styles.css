@@ -88,6 +88,10 @@ html, body {
     background-color: var(--color-bg);
     color: var(--color-white);
     position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .header__logo {
@@ -1269,11 +1273,17 @@ html, body {
     .header {
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;           /* NUEVO: Le dice "pégate al borde de arriba" */
+        z-index: 1000;    /* NUEVO: Asegura que esté por encima de textos e imágenes */
+        width: 100%;
         padding: 1rem 1.5rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
     .header__logo {
         margin-left: 0; /* Quitamos el margen grande */
+
     }
 
     /* HEADER */
